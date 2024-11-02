@@ -95,9 +95,10 @@ public class UserFormController {
         filterUser();
     }
 
-    private void generateNewId() throws IOException {
+    private String generateNewId() throws IOException {
         String nextId = userDao.getCurrentId();
         txtUserId.setText(nextId);
+        return nextId;
     }
 
     private void setTable() throws IOException {
@@ -189,13 +190,15 @@ public class UserFormController {
 
         UserDto userDto = new UserDto(id, username, password, email, contact, role, date);
         if(userBo.save(userDto)){
+            clearFields();
+            txtUserId.setText(generateNewId());
             new Alert(Alert.AlertType.CONFIRMATION, "User Added Successfully!").show();
         }else {
             new Alert(Alert.AlertType.ERROR,"SQL Error").show();
         }
-        setCellValueFactory();
-        setTable();
         clearFields();
+       // setTable();
+        generateNewId();
     }
 
     @FXML
@@ -214,8 +217,6 @@ public class UserFormController {
         }else {
             new Alert(Alert.AlertType.ERROR, "SQL Error").show();
         }
-            setCellValueFactory();
-            setTable();
             clearFields();
     }
 
@@ -233,13 +234,12 @@ public class UserFormController {
             }
         }
         clearFields();
-        setCellValueFactory();
-        setTable();
     }
 
     @FXML
-    public void btnClearOnAction(ActionEvent actionEvent) {
+    public void btnClearOnAction(ActionEvent actionEvent) throws IOException {
         clearFields();
+        generateNewId();
     }
 
     @FXML
