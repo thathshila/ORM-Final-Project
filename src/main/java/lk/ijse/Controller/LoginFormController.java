@@ -1,4 +1,4 @@
-package lk.ijse.controller;
+package lk.ijse.Controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -36,7 +36,7 @@ public class LoginFormController {
         stage.setScene(scene);
         stage.setScene(anchorPane.getScene());
         stage.centerOnScreen();
-        stage.setTitle("Item Form");
+        stage.setTitle("dashboard Form");
         stage.show();
         anpDashboard.getScene().getWindow().hide();
     }
