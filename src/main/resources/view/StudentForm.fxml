@@ -1,14 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.Controller.StudentFormController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane fx:id="anpStudent" prefHeight="543.0" prefWidth="754.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Controller.StudentFormController">
+   <children>
+      <Text layoutX="289.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="STUDENT  FORM">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtId" layoutX="81.0" layoutY="95.0" onAction="#txtIdOnAction" promptText="id" />
+      <TextField fx:id="txtAddress" layoutX="81.0" layoutY="147.0" onAction="#txtAddressOnAction" promptText="address" />
+      <TextField fx:id="txtDate" layoutX="81.0" layoutY="206.0" onAction="#txtDateOnAction" promptText="date" />
+      <TextField fx:id="txtContact" layoutX="314.0" layoutY="147.0" onAction="#txtContactOnAction" promptText="contact" />
+      <TextField fx:id="txtName" layoutX="314.0" layoutY="95.0" onAction="#txtNameOnAction" promptText="name" />
+      <ComboBox fx:id="comboUser" layoutX="313.0" layoutY="193.0" onAction="#comboUserOnAction" prefWidth="150.0" promptText="user" />
+      <ComboBox fx:id="comboCourse" layoutX="522.0" layoutY="147.0" onAction="#comboCourseOnAction" prefWidth="150.0" promptText="course" />
+      <TextField fx:id="txtSearch" layoutX="522.0" layoutY="95.0" promptText="search" />
+      <TableView fx:id="tblStudent" layoutX="84.0" layoutY="329.0" prefHeight="200.0" prefWidth="615.0">
+        <columns>
+          <TableColumn fx:id="colId" prefWidth="73.5999755859375" text="ID" />
+          <TableColumn fx:id="colName" prefWidth="92.0" text="NAME" />
+            <TableColumn fx:id="colAddress" minWidth="7.20001220703125" prefWidth="88.00004577636719" text="ADDRESS" />
+            <TableColumn fx:id="colContact" prefWidth="95.199951171875" text="CONTACT" />
+            <TableColumn fx:id="colUser" prefWidth="77.60009765625" text="USER" />
+            <TableColumn fx:id="colDate" prefWidth="186.4000122070313" text="DATE" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnSave" layoutX="90.0" layoutY="272.0" mnemonicParsing="false" onAction="#btnSaveOnAction" text="SAVE" />
+      <Button fx:id="btnUpdate" layoutX="214.0" layoutY="272.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" text="UPDATE" />
+      <Button fx:id="btnDelete" layoutX="337.0" layoutY="272.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" text="DELETE" />
+      <Button fx:id="btnClear" layoutX="455.0" layoutY="272.0" mnemonicParsing="false" onAction="#btnClearOnAction" text="CLEAR" />
+      <TextField fx:id="txtcourseName" layoutX="524.0" layoutY="206.0" promptText="courseName" />
+      <TextField fx:id="txtDuration" layoutX="525.0" layoutY="247.0" promptText="Duration" />
+      <TextField fx:id="txtFree" layoutX="526.0" layoutY="285.0" promptText="fee" />
+   </children>
 </AnchorPane>

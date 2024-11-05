@@ -11,6 +11,6 @@ public interface CourseBo extends SuperBo {
     public boolean save(CourseDto courseDto) throws IOException;
     public boolean update(CourseDto courseDto) throws IOException;
     public boolean delete(String id) throws IOException;
-    public CourseDto getCourse(String id);
+    public CourseDto getCourse(String id) throws IOException;
     public List<Course> getCourseList() throws IOException;
 }

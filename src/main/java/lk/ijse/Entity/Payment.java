@@ -15,6 +15,8 @@ public class Payment {
     private String pay_date;
     private double pay_amount;
     private String status;
+    private double upfront_amount;
+    private double balance_amount;
 
     @ManyToOne
     @JoinColumn(name = "student_course_id")

@@ -20,7 +20,7 @@ public class Student {
     private String stu_phone;
     private Date date;
 
-    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER,mappedBy = "student", cascade = CascadeType.ALL)
     private List<Student_Course> studentCourses;
 
     @ManyToOne

@@ -4,33 +4,56 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="anpCourse" prefHeight="616.0" prefWidth="829.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Controller.CourseFormController">
+<AnchorPane fx:id="anpCourse" prefHeight="694.0" prefWidth="946.0" style="-fx-background-color: BCF2F6;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Controller.CourseFormController">
    <children>
-      <Text layoutX="326.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="COURSE  FORM">
+      <Text layoutX="412.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="COURSE  FORM">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Text>
-      <TextField fx:id="txtDuration" layoutX="146.0" layoutY="209.0" onAction="#txtDurationOnAction" promptText="duartion" />
-      <TextField fx:id="txtFree" layoutX="370.0" layoutY="209.0" onAction="#txtFreeOnAction" promptText="free" />
-      <TextField fx:id="txtName" layoutX="370.0" layoutY="153.0" onAction="#txtNameOnAction" promptText="name" />
-      <TextField fx:id="txtId" layoutX="146.0" layoutY="153.0" onAction="#txtIdOnAction" promptText="id" />
-      <Button fx:id="btnSave" layoutX="146.0" layoutY="296.0" mnemonicParsing="false" onAction="#btnSaveOnAction" text="SAVE" />
-      <Button fx:id="btnUpdate" layoutX="296.0" layoutY="296.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" text="update" />
-      <Button fx:id="btnDelete" layoutX="460.0" layoutY="296.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" text="delete" />
-      <Button fx:id="btnClear" layoutX="585.0" layoutY="296.0" mnemonicParsing="false" onAction="#btnClearOnAction" text="clear" />
-      <TextField fx:id="txtSearch" layoutX="563.0" layoutY="179.0" promptText="search" />
-      <TableView fx:id="tblCourse" layoutX="146.0" layoutY="350.0" prefHeight="200.0" prefWidth="580.0">
+      <TextField fx:id="txtDuration" layoutX="120.0" layoutY="248.0" onAction="#txtDurationOnAction" prefHeight="34.0" prefWidth="291.0" promptText="duartion" />
+      <TextField fx:id="txtFree" layoutX="528.0" layoutY="248.0" onAction="#txtFreeOnAction" prefHeight="34.0" prefWidth="291.0" promptText="fee" />
+      <TextField fx:id="txtName" layoutX="528.0" layoutY="155.0" onAction="#txtNameOnAction" prefHeight="34.0" prefWidth="291.0" promptText="name" />
+      <TextField fx:id="txtId" layoutX="120.0" layoutY="155.0" onAction="#txtIdOnAction" prefHeight="34.0" prefWidth="291.0" promptText="id" />
+      <Button fx:id="btnSave" layoutX="126.0" layoutY="390.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="34.0" prefWidth="92.0" style="-fx-background-color: FED9ED;" stylesheets="@../css/DashFile.css" text="SAVE" />
+      <Button fx:id="btnUpdate" layoutX="300.0" layoutY="390.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="34.0" prefWidth="92.0" style="-fx-background-color: FED9ED;" text="UPDATE" />
+      <Button fx:id="btnDelete" layoutX="538.0" layoutY="390.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="34.0" prefWidth="92.0" style="-fx-background-color: FED9ED;" text="DELETE" />
+      <Button fx:id="btnClear" layoutX="718.0" layoutY="390.0" mnemonicParsing="false" onAction="#btnClearOnAction" prefHeight="34.0" prefWidth="92.0" style="-fx-background-color: FED9ED;" text="CLEAR" />
+      <TextField fx:id="txtSearch" layoutX="339.0" layoutY="321.0" prefHeight="34.0" prefWidth="291.0" promptText="search here" />
+      <TableView fx:id="tblCourse" layoutX="124.0" layoutY="464.0" prefHeight="200.0" prefWidth="696.0">
         <columns>
           <TableColumn fx:id="colId" prefWidth="112.80001831054688" text="ID" />
-          <TableColumn fx:id="colName" prefWidth="226.39996337890625" text="NAME" />
-            <TableColumn fx:id="colDuration" prefWidth="109.60006713867188" text="DURATION" />
-            <TableColumn fx:id="colFree" prefWidth="132.79998779296875" text="FREE" />
+          <TableColumn fx:id="colName" prefWidth="220.8000030517578" text="NAME" />
+            <TableColumn fx:id="colDuration" prefWidth="198.4000244140625" text="DURATION" />
+            <TableColumn fx:id="colFree" prefWidth="164.00006103515625" text="FREE" />
         </columns>
       </TableView>
+      <Text layoutX="126.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="COURSE  ID">
+         <font>
+            <Font name="Times New Roman" size="15.0" />
+         </font></Text>
+      <Text layoutX="120.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DURATION">
+         <font>
+            <Font name="Times New Roman" size="15.0" />
+         </font></Text>
+      <Text layoutX="528.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="COURSE  NAME">
+         <font>
+            <Font name="Times New Roman" size="15.0" />
+         </font></Text>
+      <Text layoutX="528.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="COURSE  FEE">
+         <font>
+            <Font name="Times New Roman" size="15.0" />
+         </font></Text>
+      <ImageView fitHeight="34.0" fitWidth="42.0" layoutX="583.0" layoutY="321.0">
+         <image>
+            <Image url="@../images/icons8-search-100.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

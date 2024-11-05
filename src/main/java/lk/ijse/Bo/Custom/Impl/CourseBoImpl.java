@@ -33,8 +33,14 @@ public class CourseBoImpl implements CourseBo {
     }
 
     @Override
-    public CourseDto getCourse(String id) {
-        return null;
+    public CourseDto getCourse(String id) throws IOException {
+        Course byId = courseDao.findById(id);
+        CourseDto courseDto = new CourseDto();
+        courseDto.setCourse_id(byId.getCourse_id());
+        courseDto.setCourse_name(byId.getCourse_name());
+        courseDto.setDuration(byId.getDuration());
+        courseDto.setCourse_fee(byId.getCourse_fee());
+        return courseDto;
     }
 
     @Override

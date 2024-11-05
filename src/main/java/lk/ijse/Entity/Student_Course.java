@@ -14,7 +14,9 @@ import java.util.List;
 @Entity
 public class Student_Course {
     @Id
-    private String student_course_id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long student_course_id;
+    private Date registration_date;
 
     @ManyToOne
     @JoinColumn(name = "student_id")
@@ -23,8 +25,6 @@ public class Student_Course {
     @ManyToOne
     @JoinColumn(name = "course_id")
     private Course course;
-
-    private Date registration_date;
 
     @OneToMany(mappedBy = "student_course", cascade = CascadeType.ALL)
     private List<Payment> payments;

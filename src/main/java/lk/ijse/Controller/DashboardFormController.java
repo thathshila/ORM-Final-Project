@@ -54,8 +54,11 @@ public class  DashboardFormController {
     }
 
     @FXML
-    void btnStudentOnAction(ActionEvent event) {
+    void btnStudentOnAction(ActionEvent event) throws IOException {
+        AnchorPane studentPane = FXMLLoader.load(this.getClass().getResource("/view/StudentForm.fxml"));
 
+        anpMain.getChildren().clear();
+        anpMain.getChildren().add(studentPane);
     }
 
     @FXML

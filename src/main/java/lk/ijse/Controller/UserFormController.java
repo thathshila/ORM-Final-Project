@@ -102,6 +102,7 @@ public class UserFormController {
     }
 
     private void setTable() throws IOException {
+        userTmObservableList.clear();
         List<User> userList = userBo.getUserList();
         for(User user : userList){
             UserTm userTm = new UserTm(user.getUser_id(),user.getUsername(),user.getUser_email(),user.getUser_phone(),user.getUser_role(),user.getUser_date());
@@ -197,7 +198,7 @@ public class UserFormController {
             new Alert(Alert.AlertType.ERROR,"SQL Error").show();
         }
         clearFields();
-       // setTable();
+        setTable();
         generateNewId();
     }
 
@@ -218,6 +219,8 @@ public class UserFormController {
             new Alert(Alert.AlertType.ERROR, "SQL Error").show();
         }
             clearFields();
+            setTable();
+            generateNewId();
     }
 
     @FXML
@@ -234,12 +237,15 @@ public class UserFormController {
             }
         }
         clearFields();
+        setTable();
+        generateNewId();
     }
 
     @FXML
     public void btnClearOnAction(ActionEvent actionEvent) throws IOException {
         clearFields();
         generateNewId();
+        setTable();
     }
 
     @FXML

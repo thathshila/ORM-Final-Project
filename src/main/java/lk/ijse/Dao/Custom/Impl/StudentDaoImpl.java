@@ -1,20 +1,20 @@
 package lk.ijse.Dao.Custom.Impl;
 
-import lk.ijse.Dao.Custom.UserDao;
-import lk.ijse.Entity.User;
+import lk.ijse.Dao.Custom.StudentDao;
+import lk.ijse.Entity.Course;
+import lk.ijse.Entity.Student;
+import lk.ijse.Entity.Student_Course;
 import lk.ijse.Util.FactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
-public class UserDaoImpl implements UserDao {
-
+public class StudentDaoImpl implements StudentDao {
     @Override
-    public boolean save(User object) throws IOException {
+    public boolean save(Student object) throws IOException {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         session.save(object);
@@ -24,20 +24,15 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public boolean update(User object) throws IOException {
-        Session session = FactoryConfiguration.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
-        session.update(object);
-        transaction.commit();
-        session.close();
-        return true;
+    public boolean update(Student object) throws IOException {
+        return false;
     }
 
     @Override
     public boolean delete(String id) throws IOException {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-        NativeQuery<User> nativeQuery = session.createNativeQuery("delete from user where user_id = :id");
+        NativeQuery<Student> nativeQuery = session.createNativeQuery("delete from student where stu_id = :id");
         nativeQuery.setParameter("id", id);
         nativeQuery.executeUpdate();
         transaction.commit();
@@ -46,17 +41,17 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public User findById(String id) {
+    public Student findById(String id) {
         return null;
     }
 
     @Override
-    public List<User> getAll() throws IOException {
+    public List<Student> getAll() throws IOException {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-        NativeQuery query = session.createNativeQuery("SELECT * FROM user");
-        query.addEntity(User.class);
-        List<User> resultList = query.getResultList();
+        NativeQuery query = session.createNativeQuery("SELECT * FROM student");
+        query.addEntity(Student.class);
+        List<Student> resultList = query.getResultList();
         transaction.commit();
         session.close();
         return resultList;
@@ -67,16 +62,16 @@ public class UserDaoImpl implements UserDao {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         String nextId = "";
-        Object user = session.createQuery("SELECT U.user_id  FROM User U ORDER BY U.user_id DESC LIMIT 1").uniqueResult();
-        if (user != null) {
-            String userId = user.toString();
-            String prefix = "U";
-            String[] split = userId.split(prefix);
+        Object student = session.createQuery("SELECT s.stu_id FROM Student s ORDER BY s.stu_id DESC LIMIT 1").uniqueResult();
+        if (student != null) {
+            String courseId = student.toString();
+            String prefix = "S";
+            String[] split = courseId.split(prefix);
             int idNum = Integer.parseInt(split[1]);
             nextId = prefix + String.format("%03d", ++idNum);
 
         } else {
-            return "U001";
+            return "S001";
         }
 
         transaction.commit();
@@ -85,45 +80,19 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public List<String> getUserId() {
+    public Student getStudentById(String text) {
         Session session = null;
         Transaction transaction = null;
-        List<String> userIds = new ArrayList<>();
+        Student student = null;
 
         try {
             session = FactoryConfiguration.getInstance().getSession();
             transaction = session.beginTransaction();
 
-            userIds = session.createQuery("SELECT u.user_id FROM User u", String.class).list();
+            NativeQuery<Student> query = session.createNativeQuery("SELECT * FROM student WHERE stu_id = :id", Student.class);
+            query.setParameter("id", text);
 
-            transaction.commit();
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
-            e.printStackTrace();
-        } finally {
-            if (session != null) {
-                session.close();
-            }
-        }
-        return userIds;
-    }
-
-    @Override
-    public User getUserById(String value) {
-        Session session = null;
-        Transaction transaction = null;
-        User user = null;
-
-        try {
-            session = FactoryConfiguration.getInstance().getSession();
-            transaction = session.beginTransaction();
-
-            NativeQuery<User> query = session.createNativeQuery("SELECT * FROM user U WHERE U.user_id = :id", User.class);
-            query.setParameter("id",value);
-
-            user = query.uniqueResult(); // Execute query and set the result to customer
+            student = query.uniqueResult(); // Execute query and set the result to customer
 
             transaction.commit(); // Commit the transaction if successful
         } catch (Exception e) {
@@ -137,9 +106,17 @@ public class UserDaoImpl implements UserDao {
             }
         }
 
-        return user;
+        return student;
     }
-}
 
+    @Override
+    public void saveStudentCourseDetails(Student_Course studentCourse) throws IOException {
+         Session session = FactoryConfiguration.getInstance().getSession();
+            Transaction transaction = session.beginTransaction();
+            session.save(studentCourse);
+            transaction.commit();
+            session.close();
+        }
+    }
 
 

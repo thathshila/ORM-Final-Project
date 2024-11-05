@@ -1,6 +1,7 @@
 package lk.ijse.Bo;
 
 import lk.ijse.Bo.Custom.Impl.CourseBoImpl;
+import lk.ijse.Bo.Custom.Impl.StudentBoImpl;
 import lk.ijse.Bo.Custom.Impl.UserBoImpl;
 
 public class BoFactory {
@@ -15,7 +16,7 @@ public class BoFactory {
     }
 
     public enum BoType {
-        USER,COURSE
+        USER,COURSE,STUDENT
     }
 
     public SuperBo getBoType(BoType boType) {
@@ -24,6 +25,8 @@ public class BoFactory {
                 return new UserBoImpl();
             case COURSE:
                 return new CourseBoImpl();
+            case STUDENT:
+                return new StudentBoImpl();
             default:
                 return null;
         }
