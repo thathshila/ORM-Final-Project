@@ -21,11 +21,6 @@ public class Course {
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
     private List<Student_Course> studentCourses;
 
-    public Course(String courseId, String courseName, String duration, double courseFee) {
-        this.course_id = courseId;
-        this.course_name = courseName;
-        this.duration = duration;
-        this.course_fee = courseFee;
-    }
+
 }
 

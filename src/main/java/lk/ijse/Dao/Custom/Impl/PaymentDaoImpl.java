@@ -1,0 +1,61 @@
+package lk.ijse.Dao.Custom.Impl;
+
+import lk.ijse.Dao.Custom.PaymentDao;
+import lk.ijse.Entity.Payment;
+import lk.ijse.Config.FactoryConfiguration;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import java.io.IOException;
+import java.util.List;
+
+public class PaymentDaoImpl implements PaymentDao {
+    @Override
+    public boolean save(Payment object) throws IOException {
+        return false;
+    }
+
+    @Override
+    public boolean update(Payment object) throws IOException {
+        return false;
+    }
+
+    @Override
+    public boolean delete(String id) throws IOException {
+        return false;
+    }
+
+    @Override
+    public Payment findById(String id) throws IOException {
+        return null;
+    }
+
+    @Override
+    public List<Payment> getAll() throws IOException {
+        return List.of();
+    }
+
+    @Override
+    public String getCurrentId() throws IOException {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        String nextId = "";
+        Object payment = session.createQuery("SELECT P.pay_id  FROM Payment P  ORDER BY P.pay_id DESC LIMIT 1").uniqueResult();
+        if (payment != null) {
+            String userId = payment.toString();
+            String prefix = "P";
+            String[] split = userId.split(prefix);
+            int idNum = Integer.parseInt(split[1]);
+            nextId = prefix + String.format("%03d", ++idNum);
+
+        } else {
+            return "P001";
+        }
+
+        transaction.commit();
+        session.close();
+        return nextId;
+    }
+
+}
+

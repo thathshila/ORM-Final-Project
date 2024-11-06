@@ -1,0 +1,67 @@
+/* Background color for the main AnchorPane */
+.anpStudent {
+    -fx-background-color: #e0f7fa; /* Light blue background */
+}
+
+/* Title text styling */
+.textTitle {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-fill: #01579b; /* Dark blue for headings */
+}
+
+/* Label text styling */
+.labelText {
+    -fx-font-size: 15px;
+    -fx-fill: #0277bd; /* Medium blue for labels */
+}
+
+/* TextField styling */
+.textField {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #0288d1; /* Blue border */
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+    -fx-text-fill: #01579b; /* Dark blue text */
+    -fx-prompt-text-fill: black; /* Light blue prompt text */
+}
+
+/* ComboBox styling */
+.comboBox {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #0288d1; /* Blue border */
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+    -fx-prompt-text-fill: #81d4fa; /* Light blue prompt text */
+}
+
+/* Button styling for blue theme */
+.blue-button {
+    -fx-background-color: #0288d1; /* Primary blue color */
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 5 15;
+}
+
+.blue-button:hover {
+    -fx-background-color: #0277bd; /* Slightly darker blue on hover */
+}
+
+/* Table styling */
+.table-view {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #0288d1; /* Blue border for the table */
+    -fx-border-width: 1;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #0288d1; /* Blue header background */
+}
+
+.table-view .column-header-background .label {
+    -fx-text-fill: black; /* White text for headers */
+    -fx-font-weight: bold;
+}

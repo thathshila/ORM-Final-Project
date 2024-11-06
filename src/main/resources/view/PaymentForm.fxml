@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane fx:id="anpPayment" prefHeight="686.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Controller.PaymentFormController">
+   <children>
+      <Text layoutX="343.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PAYMENT  FORM">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtStatus" layoutX="119.0" layoutY="203.0" onAction="#txtStatusOnAction" promptText="status" />
+      <TextField fx:id="txtId" layoutX="119.0" layoutY="144.0" onAction="#txtIdOnAction" promptText="id" />
+      <TextField fx:id="txtStudentId" layoutX="605.0" layoutY="203.0" onAction="#txtStudentIdOnAction" promptText="studentId" />
+      <TextField fx:id="txtPayAmount" layoutX="605.0" layoutY="144.0" onAction="#txtPayAmountOnAction" promptText="payAmount" />
+      <TextField fx:id="txtDate" layoutX="372.0" layoutY="144.0" onAction="#txtDateOnAction" promptText="date" />
+      <ComboBox fx:id="comboCourses" layoutX="372.0" layoutY="203.0" onAction="#comboCoursesOnAction" prefWidth="150.0" promptText="courses" />
+      <TableView fx:id="tblPayment" layoutX="40.0" layoutY="371.0" prefHeight="200.0" prefWidth="757.0">
+        <columns>
+          <TableColumn fx:id="colId" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="colDate" prefWidth="75.0" text="DATE" />
+            <TableColumn fx:id="colUpfrontPay" prefWidth="123.199951171875" text="UPFRONTPAYMENT" />
+            <TableColumn fx:id="colBalancePay" prefWidth="124.00006103515625" text="BALANCEPAYMENT" />
+            <TableColumn fx:id="colCourseId" prefWidth="123.19998779296873" text="COURSEID" />
+            <TableColumn fx:id="colStudentId" prefWidth="145.60003662109375" text="STUDENTID" />
+            <TableColumn fx:id="colStatus" prefWidth="87.199951171875" text="STATUS" />
+        </columns>
+      </TableView>
+      <TextField fx:id="txtCoursefee" layoutX="119.0" layoutY="254.0" promptText="coursefee" />
+      <Button fx:id="btnSave" layoutX="372.0" layoutY="318.0" mnemonicParsing="false" onAction="#btnSaveOnAction" text="Save" />
+   </children>
+</AnchorPane>

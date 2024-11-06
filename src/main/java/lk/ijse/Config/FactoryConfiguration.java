@@ -1,4 +1,4 @@
-package lk.ijse.Util;
+package lk.ijse.Config;
 
 import lk.ijse.Entity.*;
 import org.hibernate.Session;

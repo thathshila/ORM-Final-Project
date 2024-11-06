@@ -41,8 +41,11 @@ public class  DashboardFormController {
     }
 
     @FXML
-    void btnPaymentOnAction(ActionEvent event) {
+    void btnPaymentOnAction(ActionEvent event) throws IOException {
+        AnchorPane paymentPane = FXMLLoader.load(this.getClass().getResource("/view/PaymentForm.fxml"));
 
+        anpMain.getChildren().clear();
+        anpMain.getChildren().add(paymentPane);
     }
 
     @FXML

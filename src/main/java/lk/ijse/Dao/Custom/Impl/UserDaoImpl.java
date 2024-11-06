@@ -2,7 +2,7 @@ package lk.ijse.Dao.Custom.Impl;
 
 import lk.ijse.Dao.Custom.UserDao;
 import lk.ijse.Entity.User;
-import lk.ijse.Util.FactoryConfiguration;
+import lk.ijse.Config.FactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;

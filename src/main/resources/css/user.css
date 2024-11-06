@@ -1,0 +1,50 @@
+/* Set background color for the main AnchorPane */
+.anp {
+    -fx-background-color: #e0f7fa; /* Light blue background */
+}
+
+/* Set styles for text components */
+.textTitle {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-fill: #01579b; /* Dark blue for headings */
+}
+
+.labelText {
+    -fx-font-size: 15px;
+    -fx-fill: #0277bd; /* Medium blue for labels */
+}
+
+/* Styling for TextField */
+.textField {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #0288d1;
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+    -fx-text-fill: #01579b;
+    -fx-prompt-text-fill: black; /* Light blue hint for prompt text */
+}
+
+/* Button styling for blue theme */
+.saveBtn, .updateBtn, .deleteBtn, .clearBtn {
+    -fx-background-color: #0288d1;
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-border-radius: 5;
+}
+
+.saveBtn:hover, .updateBtn:hover, .deleteBtn:hover, .clearBtn:hover {
+    -fx-background-color: #0277bd; /* Slightly darker on hover */
+}
+
+/* Table styling */
+.table-view {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #0288d1;
+    -fx-border-width: 1;
+}
+.table-column-header {
+    -fx-background-color: #0288d1;
+    -fx-text-fill: white;
+}

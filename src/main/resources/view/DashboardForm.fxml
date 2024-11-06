@@ -49,11 +49,6 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <ImageView fitHeight="75.0" fitWidth="80.0" layoutX="14.0" layoutY="14.0">
-         <image>
-            <Image url="@../images/cook.jpg" />
-         </image>
-      </ImageView>
       <Text layoutX="104.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ECOOK" wrappingWidth="80.0">
          <font>
             <Font name="Sylfaen" size="21.0" />

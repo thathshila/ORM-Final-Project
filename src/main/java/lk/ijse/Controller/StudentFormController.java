@@ -209,9 +209,7 @@ public class StudentFormController {
     public void setCourseId() {
 //        List<String> courseIds = courseDao.getCourseIds();
         ObservableList<String> id = FXCollections.observableArrayList();
-        System.out.println("course");
         for (Course course : courseArrayList) {
-            System.out.println(course);
             id.add(course.getCourse_id());
         }
         comboCourse.setItems(id);
@@ -230,7 +228,7 @@ public class StudentFormController {
 
         if (result.orElse(no) == yes) {
             if (studentBo.delete(txtId.getText())) {
-                new Alert(Alert.AlertType.CONFIRMATION, "User Deleted Successfully!").show();
+                new Alert(Alert.AlertType.CONFIRMATION, "student Deleted Successfully!").show();
             } else {
                 new Alert(Alert.AlertType.ERROR, "SQL Error").show();
             }

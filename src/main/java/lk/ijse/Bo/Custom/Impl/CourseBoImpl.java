@@ -17,13 +17,13 @@ public class CourseBoImpl implements CourseBo {
 
     @Override
     public boolean save(CourseDto courseDto) throws IOException {
-        Course course = new Course(courseDto.getCourse_id(),courseDto.getCourse_name(),courseDto.getDuration(),courseDto.getCourse_fee());
+        Course course = new Course(courseDto.getCourse_id(),courseDto.getCourse_name(),courseDto.getDuration(),courseDto.getCourse_fee(),null);
         return courseDao.save(course);
     }
 
     @Override
     public boolean update(CourseDto courseDto) throws IOException {
-        Course course = new Course(courseDto.getCourse_id(),courseDto.getCourse_name(),courseDto.getDuration(),courseDto.getCourse_fee());
+        Course course = new Course(courseDto.getCourse_id(),courseDto.getCourse_name(),courseDto.getDuration(),courseDto.getCourse_fee(),null);
         return courseDao.update(course);
     }
 
@@ -48,7 +48,7 @@ public class CourseBoImpl implements CourseBo {
         List<Course> courseList = new ArrayList<>();
         List<Course> courses = courseDao.getAll();
         for (Course course : courses) {
-            courseList.add(new Course(course.getCourse_id(),course.getCourse_name(),course.getDuration(),course.getCourse_fee()));
+            courseList.add(new Course(course.getCourse_id(),course.getCourse_name(),course.getDuration(),course.getCourse_fee(),null));
         }
         return courseList;
     }

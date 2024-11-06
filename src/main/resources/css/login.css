@@ -1,0 +1,43 @@
+/* Background for the main AnchorPane */
+.anpDashboard {
+    -fx-background-image: url("../images/img (122).jpg"); /* Replace with your actual image path */
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+/* Title text styling */
+.textTitle {
+    -fx-font-size: 25px;
+    -fx-font-weight: bold;
+    -fx-fill: #01579b; /* Dark blue */
+}
+
+/* Label text styling */
+.labelText {
+    -fx-font-size: 16px;
+    -fx-fill: #0277bd; /* Medium blue */
+}
+
+/* Styling for TextField */
+.textField {
+    -fx-background-color: #BBDEFB; /* Light blue background */
+    -fx-border-color: #0288d1;
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+    -fx-text-fill: #0D47A1;
+    -fx-prompt-text-fill: #81D4FA; /* Light blue for prompt text */
+}
+
+/* Button styling */
+.blue-button {
+    -fx-background-color: #0288d1;
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-border-radius: 5;
+}
+
+.blue-button:hover {
+    -fx-background-color: #0277bd; /* Darker blue on hover */
+}
