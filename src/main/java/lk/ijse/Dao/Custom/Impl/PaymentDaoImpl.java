@@ -66,7 +66,6 @@ public class PaymentDaoImpl implements PaymentDao {
         } else {
             return "P001";
         }
-
         transaction.commit();
         session.close();
         return nextId;
