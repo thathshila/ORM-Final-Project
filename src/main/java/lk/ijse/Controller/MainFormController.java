@@ -9,7 +9,7 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
-public class  DashboardFormController {
+public class MainFormController {
 
     @FXML
     private AnchorPane anpMain;

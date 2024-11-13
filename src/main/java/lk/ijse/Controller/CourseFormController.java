@@ -98,7 +98,11 @@ public class CourseFormController {
         courseObservableList.clear();
         List<Course> courseList = courseBo.getCourseList();
         for (Course course : courseList) {
-          CourseTm courseTm =  new CourseTm(course.getCourse_id(),course.getCourse_name(),course.getDuration(),course.getCourse_fee());
+          CourseTm courseTm =  new CourseTm(
+                  course.getCourse_id(),
+                  course.getCourse_name(),
+                  course.getDuration(),
+                  course.getCourse_fee());
           courseObservableList.add(courseTm);
         }
         tblCourse.setItems(courseObservableList);
@@ -156,7 +160,8 @@ public class CourseFormController {
     void btnDeleteOnAction(ActionEvent event) throws IOException {
         ButtonType yes = new ButtonType("Yes",ButtonBar.ButtonData.OK_DONE);
         ButtonType no = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
-        Optional<ButtonType> result = new Alert(Alert.AlertType.INFORMATION, "Are you sure to remove?", yes, no).showAndWait();
+        Optional<ButtonType> result = new Alert(Alert.AlertType.INFORMATION,
+                "Are you sure to remove?", yes, no).showAndWait();
 
         if(result.orElse(no) == yes) {
             if (courseBo.delete(txtId.getText())) {

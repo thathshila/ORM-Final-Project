@@ -16,13 +16,27 @@ public class UserBoImpl implements UserBo {
 
     @Override
     public boolean save(UserDto userDto) throws IOException {
-        User user = new User(userDto.getUser_id(), userDto.getUsername(), userDto.getPassword(), userDto.getUser_email(), userDto.getUser_phone(), userDto.getUser_role(), userDto.getUser_date());
+        User user = new User(
+                userDto.getUser_id(),
+                userDto.getUsername(),
+                userDto.getPassword(),
+                userDto.getUser_email(),
+                userDto.getUser_phone(),
+                userDto.getUser_role()
+        );
         return userDao.save(user);
     }
 
     @Override
     public boolean update(UserDto userDto) throws IOException {
-        User user = new User(userDto.getUser_id(), userDto.getUsername(), userDto.getPassword(), userDto.getUser_email(), userDto.getUser_phone(), userDto.getUser_role(), userDto.getUser_date());
+        User user = new User(
+                userDto.getUser_id(),
+                userDto.getUsername(),
+                userDto.getPassword(),
+                userDto.getUser_email(),
+                userDto.getUser_phone(),
+                userDto.getUser_role()
+        );
         return userDao.update(user);
     }
 
@@ -41,7 +55,14 @@ public class UserBoImpl implements UserBo {
         List<User> userList = new ArrayList<>();
         List<User> users = userDao.getAll();
         for (User user : users) {
-            userList.add(new User(user.getUser_id(), user.getUsername(), user.getPassword(), user.getUser_email(), user.getUser_phone(), user.getUser_role(), user.getUser_date()));
+            userList.add(new User(
+                    user.getUser_id(),
+                    user.getUsername(),
+                    user.getPassword(),
+                    user.getUser_email(),
+                    user.getUser_phone(),
+                    user.getUser_role()
+            ));
         }
         return userList;
     }

@@ -4,9 +4,11 @@ import lk.ijse.Dao.Custom.StudentDao;
 import lk.ijse.Entity.Student;
 import lk.ijse.Entity.Student_Course;
 import lk.ijse.Config.FactoryConfiguration;
+import org.hibernate.Cache;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
+import org.hibernate.query.Query;
 
 import java.io.IOException;
 import java.util.List;
@@ -31,7 +33,8 @@ public class StudentDaoImpl implements StudentDao {
     public boolean delete(String id) throws IOException {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-        NativeQuery<Student> nativeQuery = session.createNativeQuery("delete from student where stu_id = :id");
+        NativeQuery<Student> nativeQuery = session.createNativeQuery
+                ("update student set status = 0 where stu_id = :id");
         nativeQuery.setParameter("id", id);
         nativeQuery.executeUpdate();
         transaction.commit();
@@ -48,7 +51,7 @@ public class StudentDaoImpl implements StudentDao {
     public List<Student> getAll() throws IOException {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-        NativeQuery query = session.createNativeQuery("SELECT * FROM student");
+        NativeQuery query = session.createNativeQuery("SELECT * FROM student where status = 1");
         query.addEntity(Student.class);
         List<Student> resultList = query.getResultList();
         transaction.commit();
@@ -61,7 +64,8 @@ public class StudentDaoImpl implements StudentDao {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         String nextId = "";
-        Object student = session.createQuery("SELECT s.stu_id FROM Student s ORDER BY s.stu_id DESC LIMIT 1").uniqueResult();
+        Object student = session.createQuery
+                ("SELECT s.stu_id FROM Student s ORDER BY s.stu_id DESC LIMIT 1").uniqueResult();
         if (student != null) {
             String courseId = student.toString();
             String prefix = "S";
@@ -88,7 +92,8 @@ public class StudentDaoImpl implements StudentDao {
             session = FactoryConfiguration.getInstance().getSession();
             transaction = session.beginTransaction();
 
-            NativeQuery<Student> query = session.createNativeQuery("SELECT * FROM student WHERE stu_id = :id", Student.class);
+            NativeQuery<Student> query = session.createNativeQuery
+                    ("SELECT * FROM student WHERE stu_id = :id", Student.class);
             query.setParameter("id", text);
 
             student = query.uniqueResult(); // Execute query and set the result to customer
@@ -116,6 +121,31 @@ public class StudentDaoImpl implements StudentDao {
             transaction.commit();
             session.close();
         }
+
+        @Override
+        public boolean isStudentRegisteredForCourse(String stuId, String courseId) throws IOException {
+            boolean isRegistered = false;
+            Session session = FactoryConfiguration.getInstance().getSession();
+
+            try {
+                // Create the query to check if the student-course combination exists
+                String hql = "SELECT 1 FROM Student_Course sc WHERE sc.student.stu_id = :stuId AND sc.course.course_id = :courseId";
+                Query query = session.createQuery(hql);
+                query.setParameter("stuId", stuId);
+                query.setParameter("courseId", courseId);
+
+                // Check if the query returns any results
+                isRegistered = query.uniqueResult() != null;
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                session.close();
+            }
+
+            return isRegistered;
+        }
+
     }
+
 
 

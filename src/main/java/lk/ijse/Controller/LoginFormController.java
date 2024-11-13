@@ -27,7 +27,7 @@ public class LoginFormController {
     private TextField txtUsername;
 
     public void btnLoginOnAction(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader= new FXMLLoader(getClass().getResource("/view/DashboardForm.fxml"));
+        FXMLLoader loader= new FXMLLoader(getClass().getResource("/view/MainForm.fxml"));
         AnchorPane anchorPane = loader.load();
 
         Scene scene = new Scene(anchorPane);

@@ -1,18 +1,32 @@
 package lk.ijse.Dao.Custom.Impl;
 
+import com.mysql.cj.jdbc.DatabaseMetaData;
+import com.mysql.cj.jdbc.MysqlDataSource;
 import lk.ijse.Dao.Custom.PaymentDao;
+import lk.ijse.Dto.PaymentDto;
 import lk.ijse.Entity.Payment;
 import lk.ijse.Config.FactoryConfiguration;
+import lk.ijse.Entity.Student_Course;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class PaymentDaoImpl implements PaymentDao {
     @Override
     public boolean save(Payment object) throws IOException {
-        return false;
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        session.save(object);
+        transaction.commit();
+        session.close();
+        return true;
     }
 
     @Override
@@ -40,7 +54,8 @@ public class PaymentDaoImpl implements PaymentDao {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         String nextId = "";
-        Object payment = session.createQuery("SELECT P.pay_id  FROM Payment P  ORDER BY P.pay_id DESC LIMIT 1").uniqueResult();
+        Object payment = session.createQuery
+                ("SELECT P.pay_id  FROM Payment P  ORDER BY P.pay_id DESC LIMIT 1").uniqueResult();
         if (payment != null) {
             String userId = payment.toString();
             String prefix = "P";
@@ -56,6 +71,5 @@ public class PaymentDaoImpl implements PaymentDao {
         session.close();
         return nextId;
     }
-
 }
 

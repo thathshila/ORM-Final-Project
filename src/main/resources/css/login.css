@@ -1,43 +1,54 @@
-/* Background for the main AnchorPane */
-.anpDashboard {
-    -fx-background-image: url("../images/img (122).jpg"); /* Replace with your actual image path */
+/* Background style */
+#anpDashboard {
+    -fx-background-image: url("images/pngtree-academy-graduation-hat-icon-simple-vector-png-image_4757623.png");
     -fx-background-size: cover;
     -fx-background-repeat: no-repeat;
-    -fx-background-position: center;
+    /*-fx-background-color: #2c3e50; !* Fallback color *!*/
 }
 
-/* Title text styling */
-.textTitle {
-    -fx-font-size: 25px;
+/* Styling the heading */
+.text {
+    -fx-fill: #ffffff;
+    -fx-font-size: 28px;
     -fx-font-weight: bold;
-    -fx-fill: #01579b; /* Dark blue */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 4, 0.5, 1, 1);
+    -fx-font: black;
 }
 
-/* Label text styling */
-.labelText {
+/* Styling the labels */
+.text-field-label {
+    -fx-fill: #ecf0f1;
     -fx-font-size: 16px;
-    -fx-fill: #0277bd; /* Medium blue */
 }
 
-/* Styling for TextField */
-.textField {
-    -fx-background-color: #BBDEFB; /* Light blue background */
-    -fx-border-color: #0288d1;
-    -fx-border-width: 1;
-    -fx-border-radius: 5;
-    -fx-text-fill: #0D47A1;
-    -fx-prompt-text-fill: #81D4FA; /* Light blue for prompt text */
+/* TextField styling */
+.text-field {
+    -fx-prompt-text-fill: #bdc3c7;
+    -fx-background-color: transparent;
+    -fx-border-color: #3498db;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 8 15 8 15;
+    -fx-text-fill: black;
+    -fx-font-size: 14px;
 }
 
 /* Button styling */
-.blue-button {
-    -fx-background-color: #0288d1;
-    -fx-text-fill: white;
-    -fx-font-size: 15px;
+#btnLogin {
+    -fx-background-color: #3498db;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 16px;
     -fx-font-weight: bold;
-    -fx-border-radius: 5;
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 5, 0, 0, 1);
 }
 
-.blue-button:hover {
-    -fx-background-color: #0277bd; /* Darker blue on hover */
+#btnLogin:hover {
+    -fx-background-color: #2980b9;
+}
+
+#btnLogin:pressed {
+    -fx-background-color: #1c5980;
 }

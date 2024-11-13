@@ -16,5 +16,4 @@ public class UserTm {
     private String user_email;
     private String user_phone;
     private String user_role;
-    private Date user_date;
 }

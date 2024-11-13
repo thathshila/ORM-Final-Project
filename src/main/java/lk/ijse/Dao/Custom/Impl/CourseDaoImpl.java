@@ -55,7 +55,8 @@ public class CourseDaoImpl implements CourseDao {
         try {
             transaction = session.beginTransaction();
 
-            NativeQuery<Course> nativeQuery = session.createNativeQuery("SELECT * FROM course WHERE course_id = :id", Course.class);
+            NativeQuery<Course> nativeQuery = session.createNativeQuery
+                    ("SELECT * FROM course WHERE course_id = :id", Course.class);
             nativeQuery.setParameter("id", id);
 
             course = nativeQuery.uniqueResult();
@@ -91,7 +92,8 @@ public class CourseDaoImpl implements CourseDao {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         String nextId = "";
-        Object course = session.createQuery("SELECT C.course_id  FROM Course C ORDER BY C.course_id DESC LIMIT 1").uniqueResult();
+        Object course = session.createQuery
+                ("SELECT C.course_id  FROM Course C ORDER BY C.course_id DESC LIMIT 1").uniqueResult();
         if (course != null) {
             String courseId = course.toString();
             String prefix = "C";
@@ -170,7 +172,8 @@ public class CourseDaoImpl implements CourseDao {
             session = FactoryConfiguration.getInstance().getSession();
             transaction = session.beginTransaction();
 
-            NativeQuery<Course> query = session.createNativeQuery("SELECT * FROM course WHERE course_id = :id", Course.class);
+            NativeQuery<Course> query = session.createNativeQuery
+                    ("SELECT * FROM course WHERE course_id = :id", Course.class);
             query.setParameter("id", courseId);
 
             course = query.uniqueResult(); // Execute query and set the result to customer

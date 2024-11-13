@@ -67,7 +67,8 @@ public class UserDaoImpl implements UserDao {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         String nextId = "";
-        Object user = session.createQuery("SELECT U.user_id  FROM User U ORDER BY U.user_id DESC LIMIT 1").uniqueResult();
+        Object user = session.createQuery
+                ("SELECT U.user_id  FROM User U ORDER BY U.user_id DESC LIMIT 1").uniqueResult();
         if (user != null) {
             String userId = user.toString();
             String prefix = "U";
@@ -120,7 +121,8 @@ public class UserDaoImpl implements UserDao {
             session = FactoryConfiguration.getInstance().getSession();
             transaction = session.beginTransaction();
 
-            NativeQuery<User> query = session.createNativeQuery("SELECT * FROM user U WHERE U.user_id = :id", User.class);
+            NativeQuery<User> query = session.createNativeQuery
+                    ("SELECT * FROM user U WHERE U.user_id = :id", User.class);
             query.setParameter("id",value);
 
             user = query.uniqueResult(); // Execute query and set the result to customer

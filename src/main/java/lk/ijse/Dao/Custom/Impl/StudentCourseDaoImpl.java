@@ -1,6 +1,7 @@
 package lk.ijse.Dao.Custom.Impl;
 
 import lk.ijse.Dao.Custom.StudentCourseDao;
+import lk.ijse.Entity.Student;
 import lk.ijse.Entity.Student_Course;
 import lk.ijse.Config.FactoryConfiguration;
 import org.hibernate.Session;
@@ -41,5 +42,36 @@ public class StudentCourseDaoImpl implements StudentCourseDao {
         transaction.commit();
         session.close();
         return resultList;
+    }
+
+    @Override
+    public Student_Course getStudentCourseById(String value) {
+        Session session = null;
+        Transaction transaction = null;
+        Student_Course student_course = null;
+
+        try {
+            session = FactoryConfiguration.getInstance().getSession();
+            transaction = session.beginTransaction();
+
+            NativeQuery<Student_Course> query = session.createNativeQuery
+                    ("SELECT * FROM student_course WHERE student_id = :id", Student_Course.class);
+            query.setParameter("id", value);
+
+            student_course = query.uniqueResult(); // Execute query and set the result to customer
+
+            transaction.commit(); // Commit the transaction if successful
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback(); // Rollback transaction if an error occurs
+            }
+            e.printStackTrace(); // Log the exception for debugging
+        } finally {
+            if (session != null) {
+                session.close(); // Ensure session is closed
+            }
+        }
+
+        return student_course;
     }
 }

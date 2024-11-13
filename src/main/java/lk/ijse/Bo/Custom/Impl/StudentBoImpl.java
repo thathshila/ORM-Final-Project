@@ -16,7 +16,16 @@ public class StudentBoImpl implements StudentBo {
 
     @Override
     public boolean save(StudentDto studentDto) throws IOException {
-        Student student = new Student(studentDto.getStu_id(),studentDto.getStu_name(),studentDto.getStu_address(),studentDto.getStu_phone(),studentDto.getDate(),null,studentDto.getUser());
+        Student student = new Student(
+                studentDto.getStu_id(),
+                studentDto.getStu_name(),
+                studentDto.getStu_address(),
+                studentDto.getStu_phone(),
+                studentDto.getDate(),
+                1,
+                null,
+                studentDto.getUser()
+        );
         return studentDao.save(student);
     }
 
@@ -40,7 +49,16 @@ public class StudentBoImpl implements StudentBo {
         List<Student> studentList = new ArrayList<>();
         List<Student> students = studentDao.getAll();
         for (Student student : students) {
-            studentList.add(new Student(student.getStu_id(),student.getStu_name(),student.getStu_address(),student.getStu_phone(),student.getDate(),null,null));
+            studentList.add(new Student(
+                    student.getStu_id(),
+                    student.getStu_name(),
+                    student.getStu_address(),
+                    student.getStu_phone(),
+                    student.getDate(),
+                    1,
+                    null,
+                    null
+            ));
         }
         return studentList;
     }

@@ -22,12 +22,11 @@
       <Button fx:id="btnDelete" layoutX="307.0" layoutY="436.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="35.0" prefWidth="130.0" styleClass="deleteBtn" text="DELETE" />
       <TableView fx:id="tblUser" layoutX="87.0" layoutY="507.0" prefHeight="163.0" prefWidth="764.0" styleClass="table-view">
          <columns>
-            <TableColumn fx:id="colId" prefWidth="70.4" text="ID" />
-            <TableColumn fx:id="colUsername" prefWidth="176.0" text="USERNAME" />
-            <TableColumn fx:id="colRole" prefWidth="110.4" text="ROLE" />
-            <TableColumn fx:id="colEmail" prefWidth="106.4" text="EMAIL" />
-            <TableColumn fx:id="colContact" prefWidth="156.8" text="CONTACT" />
-            <TableColumn fx:id="colDate" prefWidth="140.8" text="DATE" />
+            <TableColumn fx:id="colId" prefWidth="132.00000762939453" text="ID" />
+            <TableColumn fx:id="colUsername" prefWidth="155.20001220703125" text="USERNAME" />
+            <TableColumn fx:id="colRole" prefWidth="118.4000244140625" text="ROLE" />
+            <TableColumn fx:id="colEmail" prefWidth="156.00003051757812" text="EMAIL" />
+            <TableColumn fx:id="colContact" prefWidth="200.79998779296875" text="CONTACT" />
          </columns>
       </TableView>
       <TextField fx:id="txtUserId" layoutX="88.0" layoutY="196.0" onAction="#txtUserIdOnAction" prefHeight="35.0" prefWidth="350.0" promptText="userId" styleClass="textField" />

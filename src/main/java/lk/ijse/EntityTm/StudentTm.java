@@ -15,5 +15,4 @@ public class StudentTm {
     private String stu_address;
     private String stu_phone;
     private Date date;
-    private String user_id;
 }

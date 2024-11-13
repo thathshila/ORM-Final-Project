@@ -147,15 +147,19 @@ public class StudentFormController {
         colAddress.setCellValueFactory(new PropertyValueFactory<>("stu_address"));
         colContact.setCellValueFactory(new PropertyValueFactory<>("stu_phone"));
         colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
-        colUser.setCellValueFactory(new PropertyValueFactory<>("user_id"));
     }
 
     private void setTable() throws IOException {
         studentTmObservableList.clear();
-        String userId = comboUser.getValue();
         List<Student> studentList = studentBo.getStudentList();
         for (Student student : studentList) {
-            StudentTm studentTm = new StudentTm(student.getStu_id(), student.getStu_name(), student.getStu_address(), student.getStu_phone(), student.getDate(), userId);
+            StudentTm studentTm = new StudentTm(
+                    student.getStu_id(),
+                    student.getStu_name(),
+                    student.getStu_address(),
+                    student.getStu_phone(),
+                    student.getDate()
+                    );
             studentTmObservableList.add(studentTm);
         }
         tblStudent.setItems(studentTmObservableList);
@@ -207,7 +211,6 @@ public class StudentFormController {
     }
 
     public void setCourseId() {
-//        List<String> courseIds = courseDao.getCourseIds();
         ObservableList<String> id = FXCollections.observableArrayList();
         for (Course course : courseArrayList) {
             id.add(course.getCourse_id());
@@ -224,7 +227,8 @@ public class StudentFormController {
     void btnDeleteOnAction(ActionEvent event) throws IOException {
         ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
         ButtonType no = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
-        Optional<ButtonType> result = new Alert(Alert.AlertType.INFORMATION, "Are you sure to remove?", yes, no).showAndWait();
+        Optional<ButtonType> result = new Alert(Alert.AlertType.INFORMATION,
+                "Are you sure to remove?", yes, no).showAndWait();
 
         if (result.orElse(no) == yes) {
             if (studentBo.delete(txtId.getText())) {
@@ -237,64 +241,64 @@ public class StudentFormController {
 
     @FXML
     void btnSaveOnAction(ActionEvent event) throws IOException {
-            String tel = txtSearch.getText();
-            Student existingStudent = null;
+    String studentId = txtId.getText();
+    Student existingStudent = studentDao.getStudentById(studentId);
 
-            // Search for existing student by phone number
-            for (Student stu : studentArrayList) {
-                if (stu.getStu_phone().equals(tel)) {
-                    existingStudent = stu;
-                    break; // Exit the loop once we find the student
-                }
-            }
+    // If the student already exists, register them for the new course
+    if (existingStudent != null) {
+        registerStudentForCourse(existingStudent);
+    } else {
+        // Create and save a new student if not found
+        User user = userDao.getUserById(comboUser.getValue());
 
-            // If the student exists, register them for the selected course
-            if (existingStudent != null) {
-                registerStudentForCourse(existingStudent);
-            } else {
-                // Otherwise, create and save a new student
-                User user = userDao.getUserById(comboUser.getValue());
+        StudentDto studentDto = new StudentDto();
+        studentDto.setStu_id(studentId);
+        studentDto.setStu_name(txtName.getText());
+        studentDto.setStu_address(txtAddress.getText());
+        studentDto.setStu_phone(txtContact.getText());
+        studentDto.setDate(Date.valueOf(txtDate.getText()));
+        studentDto.setUser(user);
 
-                StudentDto studentDto = new StudentDto();
-                studentDto.setStu_id(txtId.getText());
-                studentDto.setStu_name(txtName.getText());
-                studentDto.setStu_address(txtAddress.getText());
-                studentDto.setStu_phone(txtContact.getText());
-                studentDto.setDate(Date.valueOf(txtDate.getText()));
-                studentDto.setUser(user);
-                studentBo.save(studentDto);
+        studentBo.save(studentDto);
 
-                // Retrieve saved student and register them for the course
-                Student newStudent = studentDao.getStudentById(txtId.getText());
-                registerStudentForCourse(newStudent);
+        // Retrieve the newly saved student and register them for the course
+        Student newStudent = studentDao.getStudentById(studentId);
+        registerStudentForCourse(newStudent);
+    }
+
+    setTable();
+}
+
+    // Helper method to register a student for a course
+    private void registerStudentForCourse(Student student) throws IOException {
+        String courseId = comboCourse.getValue();
+        Course selectedCourse = null;
+
+        // Find the course by ID
+        for (Course course : courseArrayList) {
+            if (course.getCourse_id().equals(courseId)) {
+                selectedCourse = course;
+                break;
             }
         }
 
-// Helper method to register a student for a course
-        private void registerStudentForCourse(Student student) throws IOException {
-            String courseId = comboCourse.getValue();
-            Course selectedCourse = null;
-
-            // Find the course based on the selected course ID
-            for (Course course : courseArrayList) {
-                if (course.getCourse_id().equals(courseId)) {
-                    selectedCourse = course;
-                    break;
-                }
-            }
-
-            if (selectedCourse != null) {
+        if (selectedCourse != null) {
+            // Check if the student is already registered for this course
+            if (!studentDao.isStudentRegisteredForCourse(student.getStu_id(), courseId)) {
                 Student_Course studentCourse = new Student_Course();
                 studentCourse.setStudent(student);
                 studentCourse.setCourse(selectedCourse);
                 studentCourse.setRegistration_date(new java.util.Date());
 
-                // Save the student-course registration
+                // Save the student-course relationship
                 studentDao.saveStudentCourseDetails(studentCourse);
             } else {
-                System.out.println("Selected course not found.");
+                System.out.println("Student is already registered for this course.");
             }
+        } else {
+            System.out.println("Selected course not found.");
         }
+    }
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
