@@ -17,5 +17,6 @@ public class PaymentTm {
     private double balance_amount;
     private String stu_id;
     private String cou_id;
+    private Long student_course_id;
     private Button btnRemove;
 }

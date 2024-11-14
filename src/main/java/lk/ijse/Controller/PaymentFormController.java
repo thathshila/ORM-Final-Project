@@ -56,6 +56,9 @@ public class PaymentFormController {
     private TableColumn<?, ?> colUpfrontPay;
 
     @FXML
+    private TableColumn<?, ?> colStudentCourseDetailId;
+
+    @FXML
     private ComboBox<String> comboCourses;
 
     @FXML
@@ -119,6 +122,7 @@ public class PaymentFormController {
         colCourseId.setCellValueFactory(new PropertyValueFactory<>("cou_id"));
         colUpfrontPay.setCellValueFactory(new PropertyValueFactory<>("upfront_amount"));
         colBalancePay.setCellValueFactory(new PropertyValueFactory<>("balance_amount"));
+        colStudentCourseDetailId.setCellValueFactory(new PropertyValueFactory<>("student_course_id"));
         colBtnRemove.setCellValueFactory(new PropertyValueFactory<>("btnRemove"));
     }
 
@@ -161,7 +165,7 @@ public class PaymentFormController {
             return;
         }
 
-        Student_Course studentCourse = studentCourseDao.getStudentCourseById(comboStudent.getValue());
+        Student_Course studentCourse = studentCourseDao.getStudentCourseById(Long.valueOf(txtStuCouDetail.getText()));
 
         PaymentDto paymentDto = new PaymentDto();
         paymentDto.setPay_id(txtId.getText());
@@ -228,6 +232,7 @@ public class PaymentFormController {
         String courseId = comboCourses.getValue();
         String studentId = comboStudent.getValue();
         String status = txtStatus.getText();
+        Long stu_cou_id = Long.valueOf(txtStuCouDetail.getText());
         double upFront;
         double getFee;
 
@@ -269,7 +274,7 @@ public class PaymentFormController {
         });
 
         // Add new payment record to the table (assuming you have a `PaymentTm` class)
-        PaymentTm paymentTm = new PaymentTm(id, status, upFront, balancePay, studentId,courseId,btnRemove);
+        PaymentTm paymentTm = new PaymentTm(id, status, upFront, balancePay, studentId,courseId,stu_cou_id,btnRemove);
         paymentTmObservableList.add(paymentTm);
         tblPayment.setItems(paymentTmObservableList);
         tblPayment.refresh();

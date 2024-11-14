@@ -45,7 +45,7 @@ public class StudentCourseDaoImpl implements StudentCourseDao {
     }
 
     @Override
-    public Student_Course getStudentCourseById(String value) {
+    public Student_Course getStudentCourseById(Long value) {
         Session session = null;
         Transaction transaction = null;
         Student_Course student_course = null;
@@ -55,7 +55,7 @@ public class StudentCourseDaoImpl implements StudentCourseDao {
             transaction = session.beginTransaction();
 
             NativeQuery<Student_Course> query = session.createNativeQuery
-                    ("SELECT * FROM student_course WHERE student_id = :id", Student_Course.class);
+                    ("SELECT * FROM student_course WHERE student_course_id = :id", Student_Course.class);
             query.setParameter("id", value);
 
             student_course = query.uniqueResult(); // Execute query and set the result to customer

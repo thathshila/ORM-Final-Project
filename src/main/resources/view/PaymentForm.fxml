@@ -16,26 +16,27 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Text>
-      <TextField fx:id="txtStatus" layoutX="119.0" layoutY="203.0" onAction="#txtStatusOnAction" promptText="status" />
-      <TextField fx:id="txtId" layoutX="119.0" layoutY="144.0" onAction="#txtIdOnAction" promptText="id" />
-      <TextField fx:id="txtPayAmount" layoutX="605.0" layoutY="144.0" onAction="#txtPayAmountOnAction" promptText="payAmount" />
-      <TextField fx:id="txtDate" layoutX="372.0" layoutY="144.0" onAction="#txtDateOnAction" promptText="date" />
-      <ComboBox fx:id="comboCourses" layoutX="372.0" layoutY="203.0" onAction="#comboCoursesOnAction" prefWidth="150.0" promptText="courses" />
-      <TableView fx:id="tblPayment" layoutX="40.0" layoutY="371.0" prefHeight="200.0" prefWidth="757.0">
+      <TextField fx:id="txtStatus" layoutX="53.0" layoutY="190.0" onAction="#txtStatusOnAction" promptText="status" />
+      <TextField fx:id="txtId" layoutX="53.0" layoutY="144.0" onAction="#txtIdOnAction" promptText="id" />
+      <TextField fx:id="txtPayAmount" layoutX="53.0" layoutY="292.0" onAction="#txtPayAmountOnAction" promptText="payAmount" />
+      <TextField fx:id="txtDate" layoutX="242.0" layoutY="144.0" onAction="#txtDateOnAction" promptText="date" />
+      <ComboBox fx:id="comboCourses" layoutX="241.0" layoutY="190.0" onAction="#comboCoursesOnAction" prefWidth="150.0" promptText="courses" />
+      <TableView fx:id="tblPayment" layoutX="34.0" layoutY="472.0" prefHeight="200.0" prefWidth="757.0">
         <columns>
           <TableColumn fx:id="colId" prefWidth="75.0" text="ID" />
             <TableColumn fx:id="colUpfrontPay" prefWidth="123.199951171875" text="UPFRONTPAYMENT" />
             <TableColumn fx:id="colBalancePay" prefWidth="124.00006103515625" text="BALANCEPAYMENT" />
-            <TableColumn fx:id="colCourseId" prefWidth="123.19998779296873" text="COURSEID" />
-            <TableColumn fx:id="colStudentId" prefWidth="145.60003662109375" text="STUDENTID" />
-            <TableColumn fx:id="colStatus" prefWidth="67.20001220703125" text="STATUS" />
-            <TableColumn fx:id="colBtnRemove" prefWidth="95.99996337890627" text="Remove" />
+            <TableColumn fx:id="colCourseId" prefWidth="79.20001220703125" text="COURSEID" />
+            <TableColumn fx:id="colStudentId" prefWidth="82.39996337890625" text="STUDENTID" />
+            <TableColumn fx:id="colStatus" prefWidth="83.199951171875" text="STATUS" />
+            <TableColumn fx:id="colStudentCourseDetailId" prefWidth="96.80001220703127" text="STU_COU_ID" />
+            <TableColumn fx:id="colBtnRemove" prefWidth="90.40008544921875" text="REMOVE" />
         </columns>
       </TableView>
-      <TextField fx:id="txtCoursefee" layoutX="119.0" layoutY="254.0" promptText="coursefee" />
-      <Button fx:id="btnSave" layoutX="372.0" layoutY="318.0" mnemonicParsing="false" onAction="#btnSaveOnAction" text="Save" />
-      <ComboBox fx:id="comboStudent" layoutX="605.0" layoutY="203.0" onAction="#comboStudentOnAction" prefWidth="150.0" promptText="students" />
-      <Button fx:id="btnConfirm" layoutX="553.0" layoutY="318.0" mnemonicParsing="false" onAction="#btnConfirmOnAction" text="confirm" />
-      <TextField fx:id="txtStuCouDetail" layoutX="373.0" layoutY="254.0" />
+      <TextField fx:id="txtCoursefee" layoutX="53.0" layoutY="241.0" promptText="coursefee" />
+      <Button fx:id="btnSave" layoutX="66.0" layoutY="369.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="39.0" prefWidth="49.0" text="Save" />
+      <ComboBox fx:id="comboStudent" layoutX="240.0" layoutY="292.0" onAction="#comboStudentOnAction" prefWidth="150.0" promptText="students" />
+      <Button fx:id="btnConfirm" layoutX="159.0" layoutY="369.0" mnemonicParsing="false" onAction="#btnConfirmOnAction" prefHeight="39.0" prefWidth="70.0" text="confirm" />
+      <TextField fx:id="txtStuCouDetail" layoutX="241.0" layoutY="241.0" promptText="stu_cou_id" />
    </children>
 </AnchorPane>

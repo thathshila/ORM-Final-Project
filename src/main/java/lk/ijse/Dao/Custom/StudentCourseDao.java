@@ -5,5 +5,5 @@ import lk.ijse.Dao.SuperDao;
 import lk.ijse.Entity.Student_Course;
 
 public interface StudentCourseDao extends CrudDao<Student_Course> {
-    Student_Course getStudentCourseById(String value);
+    Student_Course getStudentCourseById(Long value);
 }

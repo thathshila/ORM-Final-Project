@@ -12,42 +12,42 @@
 <AnchorPane prefHeight="770.0" prefWidth="1154.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Controller.MainFormController">
    <children>
       <AnchorPane fx:id="anpMain" layoutX="208.0" layoutY="78.0" prefHeight="694.0" prefWidth="946.0" stylesheets="@../css/DashFile.css" />
-      <Button fx:id="btnDashboard" layoutX="-4.0" layoutY="224.0" mnemonicParsing="false" onAction="#btnDashboardOnAction" prefHeight="54.0" prefWidth="208.0" styleClass="textFieldRedius" stylesheets="@../css/DashFile.css" text="DASHBOARD">
+      <Button fx:id="btnDashboard" layoutX="-4.0" layoutY="224.0" mnemonicParsing="false" onAction="#btnDashboardOnAction" prefHeight="54.0" prefWidth="208.0" styleClass="textFieldRedius" stylesheets="@../css/DashFile.css" text="                       DASHBOARD">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btnUser" layoutY="284.0" mnemonicParsing="false" onAction="#btnUserOnAction" prefHeight="54.0" prefWidth="208.0" stylesheets="@../css/DashFile.css" text="USER">
+      <Button fx:id="btnUser" layoutY="284.0" mnemonicParsing="false" onAction="#btnUserOnAction" prefHeight="54.0" prefWidth="208.0" stylesheets="@../css/DashFile.css" text="         USER">
          <styleClass>
             <String fx:value="logout1" />
             <String fx:value="textFieldRedius" />
          </styleClass>
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="System Bold" size="14.0" />
          </font></Button>
-      <Button fx:id="btnStudent" layoutY="354.0" mnemonicParsing="false" onAction="#btnStudentOnAction" prefHeight="54.0" prefWidth="208.0" stylesheets="@../css/DashFile.css" text="STUDENT">
+      <Button fx:id="btnStudent" layoutY="354.0" mnemonicParsing="false" onAction="#btnStudentOnAction" prefHeight="54.0" prefWidth="208.0" stylesheets="@../css/DashFile.css" text="                 STUDENT">
          <styleClass>
             <String fx:value="logout1" />
             <String fx:value="textFieldRedius" />
          </styleClass>
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="System Bold" size="14.0" />
          </font></Button>
-      <Button fx:id="btnProgram" layoutY="419.0" mnemonicParsing="false" onAction="#btnProgramOnAction" prefHeight="54.0" prefWidth="208.0" stylesheets="@../css/DashFile.css" text="PROGRAM">
+      <Button fx:id="btnProgram" layoutY="419.0" mnemonicParsing="false" onAction="#btnProgramOnAction" prefHeight="54.0" prefWidth="208.0" stylesheets="@../css/DashFile.css" text="                  PROGRAM">
          <styleClass>
             <String fx:value="logout1" />
             <String fx:value="textFieldRedius" />
          </styleClass>
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="System Bold" size="14.0" />
          </font></Button>
-      <Button fx:id="btnPayment" layoutX="-3.0" layoutY="485.0" mnemonicParsing="false" onAction="#btnPaymentOnAction" prefHeight="54.0" prefWidth="208.0" stylesheets="@../css/DashFile.css" text="PAYMENT">
+      <Button fx:id="btnPayment" layoutX="-3.0" layoutY="485.0" mnemonicParsing="false" onAction="#btnPaymentOnAction" prefHeight="54.0" prefWidth="208.0" stylesheets="@../css/DashFile.css" text="                  PAYMENT">
          <styleClass>
             <String fx:value="logout1" />
             <String fx:value="textFieldRedius" />
          </styleClass>
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="System Bold" size="14.0" />
          </font></Button>
       <Text layoutX="24.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: blue;" text="E" wrappingWidth="20.0">
          <font>
@@ -92,5 +92,19 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Text>
+      <Button fx:id="btnPayment1" layoutY="550.0" mnemonicParsing="false" onAction="#btnPaymentOnAction" prefHeight="54.0" prefWidth="208.0" stylesheets="@../css/DashFile.css" text="                  SETTINGS">
+         <styleClass>
+            <String fx:value="logout1" />
+            <String fx:value="textFieldRedius" />
+         </styleClass>
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="20.0" layoutY="553.0">
+         <image>
+            <Image url="@../images/icons8-settings-100.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
