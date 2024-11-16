@@ -31,7 +31,17 @@ public class StudentBoImpl implements StudentBo {
 
     @Override
     public boolean update(StudentDto studentDto) throws IOException {
-        return false;
+        Student student = new Student(
+                studentDto.getStu_id(),
+                studentDto.getStu_name(),
+                studentDto.getStu_address(),
+                studentDto.getStu_phone(),
+                studentDto.getDate(),
+                1,  // You might want to verify what this field represents
+                null,  // Adjust this if needed
+                studentDto.getUser()
+        );
+        return studentDao.update(student);
     }
 
     @Override

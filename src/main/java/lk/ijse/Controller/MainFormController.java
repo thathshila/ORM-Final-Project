@@ -8,6 +8,8 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class MainFormController {
 
@@ -24,6 +26,9 @@ public class MainFormController {
     private Button btnProgram;
 
     @FXML
+    private Button btnSettings;
+
+    @FXML
     private Button btnStudent;
 
     @FXML
@@ -34,6 +39,15 @@ public class MainFormController {
 
     @FXML
     private Label lblDate;
+
+    public void initialize() {
+        // Format the current date and time
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd    HH:mm");
+        String formattedDateTime = LocalDateTime.now().format(formatter);
+
+        // Set the date and time to the label
+        lblDate.setText(formattedDateTime);
+    }
 
     @FXML
     void btnDashboardOnAction(ActionEvent event) {
@@ -72,4 +86,11 @@ public class MainFormController {
         anpMain.getChildren().add(userPane);
     }
 
+    @FXML
+    void btnSettingsOnAction(ActionEvent actionEvent) throws IOException {
+        AnchorPane settingPane = FXMLLoader.load(this.getClass().getResource("/view/SettingForm.fxml"));
+
+        anpMain.getChildren().clear();
+        anpMain.getChildren().add(settingPane);
+    }
 }

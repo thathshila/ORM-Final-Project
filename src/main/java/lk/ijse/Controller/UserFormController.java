@@ -19,6 +19,7 @@ import lk.ijse.Entity.User;
 
 import java.io.IOException;
 import java.sql.Date;
+import org.mindrot.jbcrypt.BCrypt;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
@@ -188,17 +189,20 @@ public class UserFormController {
         String id = txtUserId.getText();
         String role = txtRole.getText();
         String username = txtUsername.getText();
-        String password = txtPassword.getText();
+        String rawPassword = txtPassword.getText();
         String email = txtEmail.getText();
         String contact = txtContact.getText();
 
-        UserDto userDto = new UserDto(id, username, password, email, contact, role);
-        if(userBo.save(userDto)){
+        // Hash the password using BCrypt
+        String hashedPassword = BCrypt.hashpw(rawPassword, BCrypt.gensalt());
+
+        UserDto userDto = new UserDto(id, username, hashedPassword, email, contact, role);
+        if (userBo.save(userDto)) {
             clearFields();
             txtUserId.setText(generateNewId());
             new Alert(Alert.AlertType.CONFIRMATION, "User Added Successfully!").show();
-        }else {
-            new Alert(Alert.AlertType.ERROR,"SQL Error").show();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "SQL Error").show();
         }
         clearFields();
         setTable();

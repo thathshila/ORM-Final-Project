@@ -1,0 +1,12 @@
+/* Styling for the date label */
+.label {
+    -fx-font-size: 16px;
+    -fx-text-fill: #0D47A1; /* Deep blue for label text */
+    -fx-font-weight: bold;
+}
+
+#lblDate {
+    -fx-font-size: 16px;
+    -fx-text-fill: #1976D2; /* Medium blue for the date and time */
+    -fx-font-style: italic;
+}

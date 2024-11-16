@@ -25,8 +25,26 @@ public class StudentDaoImpl implements StudentDao {
     }
 
     @Override
-    public boolean update(Student object) throws IOException {
-        return false;
+    public boolean update(Student student) throws IOException {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = null;
+        boolean isUpdated = false;
+
+        try {
+            transaction = session.beginTransaction();
+            session.update(student);  // Use update() for updating existing records
+            transaction.commit();
+            isUpdated = true;
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();  // Rollback transaction on error
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+
+        return isUpdated;
     }
 
     @Override
@@ -122,8 +140,8 @@ public class StudentDaoImpl implements StudentDao {
             session.close();
         }
 
-        @Override
-        public boolean isStudentRegisteredForCourse(String stuId, String courseId) throws IOException {
+    @Override
+    public boolean isStudentRegisteredForCourse(String stuId, String courseId) throws IOException {
             boolean isRegistered = false;
             Session session = FactoryConfiguration.getInstance().getSession();
 

@@ -33,6 +33,21 @@
     -fx-font-size: 14px;
 }
 
+/* Button styling for Forgot Password */
+#btnForgotPassword {
+    -fx-text-fill: black;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-background-color: transparent; /* If you want it transparent */
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-cursor: hand; /* Optional: adds a pointer when hovered */
+}
+
+#btnForgotPassword:hover {
+    -fx-text-fill: #dcdcdc; /* Optional hover effect */
+}
+
 /* Button styling */
 #btnLogin {
     -fx-background-color: #3498db;
@@ -52,3 +67,5 @@
 #btnLogin:pressed {
     -fx-background-color: #1c5980;
 }
+
+

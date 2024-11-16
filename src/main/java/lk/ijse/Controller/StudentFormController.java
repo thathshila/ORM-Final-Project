@@ -140,7 +140,6 @@ public class StudentFormController {
         courseArrayList = (ArrayList<Course>) courseList;
     }
 
-
     private void setCellValueFactory() {
         colId.setCellValueFactory(new PropertyValueFactory<>("stu_id"));
         colName.setCellValueFactory(new PropertyValueFactory<>("stu_name"));
@@ -265,11 +264,10 @@ public class StudentFormController {
         Student newStudent = studentDao.getStudentById(studentId);
         registerStudentForCourse(newStudent);
     }
-
-    setTable();
+        setTable();
+        new Alert(Alert.AlertType.INFORMATION, "Student Added With Course Successfully!").show();
 }
 
-    // Helper method to register a student for a course
     private void registerStudentForCourse(Student student) throws IOException {
         String courseId = comboCourse.getValue();
         Course selectedCourse = null;
@@ -301,9 +299,31 @@ public class StudentFormController {
     }
 
     @FXML
-    void btnUpdateOnAction(ActionEvent event) {
+    void btnUpdateOnAction(ActionEvent event) throws IOException {
+        String id = txtId.getText();
+        String name = txtName.getText();
+        String address = txtAddress.getText();
+        String contact = txtContact.getText();
+        Date date = Date.valueOf(txtDate.getText());
 
+        // Retrieve the associated user (consider whether `id` or another identifier is used)
+        User user = userDao.getUserById(comboUser.getValue());
+
+        // Create a StudentDto object with the updated data
+        StudentDto studentDto = new StudentDto(id, name, address, contact, date, user);
+
+        // Call the update method and display the appropriate message
+        if (studentBo.update(studentDto)) {
+            new Alert(Alert.AlertType.INFORMATION, "Student Updated Successfully").show();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Error updating student details").show();
+        }
+
+        // Refresh the table and generate a new ID for subsequent operations
+        setTable();
+        generateNewId();
     }
+
 
     @FXML
     void comboCourseOnAction(ActionEvent event) throws IOException {
@@ -347,7 +367,6 @@ public class StudentFormController {
         studentTmSortedList.comparatorProperty().bind(tblStudent.comparatorProperty());
         tblStudent.setItems(studentTmSortedList);
     }
-
 
     @FXML
     void txtAddressOnAction(ActionEvent event) {

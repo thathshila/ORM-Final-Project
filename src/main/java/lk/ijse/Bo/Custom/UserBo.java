@@ -13,4 +13,5 @@ public interface UserBo extends SuperBo {
     public boolean delete(String id) throws IOException;
     public UserDto getUser(String id);
     public List<User> getUserList() throws IOException;
+
 }

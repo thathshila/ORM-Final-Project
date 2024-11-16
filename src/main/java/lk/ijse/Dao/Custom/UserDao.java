@@ -14,4 +14,7 @@ public interface UserDao extends CrudDao<User> {
 
     User getUserById(String value);
 
+    void checkCredential(String username, String password);
+
+    boolean updateUser(User user);
 }
