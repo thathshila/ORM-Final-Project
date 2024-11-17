@@ -7,8 +7,10 @@ import lk.ijse.Config.FactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
+import org.hibernate.query.Query;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -192,4 +194,40 @@ public class CourseDaoImpl implements CourseDao {
 
         return course;
     }
+
+    @Override
+    public int getProgramCount() {
+        int courseCount = 0;
+        Session session = null;
+
+        try {
+            // Get the session from the factory
+            session = FactoryConfiguration.getInstance().getSession();
+            session.beginTransaction();
+
+            // HQL query to count the number of courses
+            String hql = "SELECT COUNT(c) FROM Course c";
+            Query<Long> query = session.createQuery(hql, Long.class);
+
+            // Get the result and cast to int
+            Long countResult = query.uniqueResult();
+            if (countResult != null) {
+                courseCount = countResult.intValue();
+            }
+
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            if (session != null && session.getTransaction() != null) {
+                session.getTransaction().rollback();
+            }
+            e.printStackTrace(); // For debugging
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+
+        return courseCount;
+    }
+
 }

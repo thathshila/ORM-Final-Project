@@ -3,9 +3,12 @@ package lk.ijse.Controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.Dao.Custom.UserDao;
+import lk.ijse.Dao.DaoFactory;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -40,18 +43,31 @@ public class MainFormController {
     @FXML
     private Label lblDate;
 
-    public void initialize() {
-        // Format the current date and time
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd    HH:mm");
+    private String user;
+
+    UserDao userDao = (UserDao) DaoFactory.getDaoFactory().getDaoType(DaoFactory.DaoType.USER);
+
+    public void initialize() throws IOException {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd        HH:mm");
         String formattedDateTime = LocalDateTime.now().format(formatter);
 
-        // Set the date and time to the label
         lblDate.setText(formattedDateTime);
+        loadDashboardForm();
+    }
+
+    public void loadDashboardForm() throws IOException {
+        AnchorPane dashboardPane = FXMLLoader.load(this.getClass().getResource("/view/DashboardForm.fxml"));
+
+        anpMain.getChildren().clear();
+        anpMain.getChildren().add(dashboardPane);
     }
 
     @FXML
-    void btnDashboardOnAction(ActionEvent event) {
+    void btnDashboardOnAction(ActionEvent event) throws IOException {
+        AnchorPane dashboardPane = FXMLLoader.load(this.getClass().getResource("/view/DashboardForm.fxml"));
 
+        anpMain.getChildren().clear();
+        anpMain.getChildren().add(dashboardPane);
     }
 
     @FXML
@@ -93,4 +109,25 @@ public class MainFormController {
         anpMain.getChildren().clear();
         anpMain.getChildren().add(settingPane);
     }
+
+   String username;
+
+    public void setUsername(String username) {
+        this.username = username;
+        String userRole = getUserRole(username);
+        setUserRole(userRole);
+    }
+
+    private String getUserRole(String username) {
+        return userDao.getUserRole(username); // Ensure getUserRole(username) exists in UserDao and returns the role as a String
+    }
+
+    private void setUserRole(String userRole) {
+        if (userRole != null) {
+            lblCurrentUser.setText(userRole); // Display the user role on the label
+        } else {
+            lblCurrentUser.setText("Role not found");
+        }
+    }
 }
+

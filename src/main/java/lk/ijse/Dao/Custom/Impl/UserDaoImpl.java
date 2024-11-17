@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.Controller.MainFormController;
 import lk.ijse.Dao.Custom.UserDao;
 import lk.ijse.Entity.User;
 import lk.ijse.Config.FactoryConfiguration;
@@ -154,42 +155,30 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public void checkCredential(String username, String pw) {
+    public boolean checkCredential(String username, String pw) {
         Session session = null;
         try {
             session = FactoryConfiguration.getInstance().getSession();
             session.beginTransaction();
 
-            // Use HQL to fetch user with specified username
             String hql = "SELECT u.password FROM User u WHERE u.username = :username";
             Query<String> query = session.createQuery(hql, String.class);
             query.setParameter("username", username);
 
-            // Get results
             List<String> resultList = query.getResultList();
 
-            if (resultList.size() == 1) { // Only one user should match
+            if (resultList.size() == 1) {
                 String dbPw = resultList.get(0);
-
-                // Check if the raw password matches the hashed password
-                if (BCrypt.checkpw(pw, dbPw)) {
-                    navigateToTheDashboard();
-                } else {
-                    new Alert(Alert.AlertType.ERROR, "Sorry! Password is incorrect!").show();
-                }
-            } else if (resultList.isEmpty()) {
-                new Alert(Alert.AlertType.INFORMATION, "Sorry! Username can't be found!").show();
-            } else {
-                // Handle case where multiple results are found (should not happen if usernames are unique)
-                new Alert(Alert.AlertType.ERROR, "Multiple users found with the same username. Please contact admin.").show();
+                return BCrypt.checkpw(pw, dbPw);
             }
+            return false; // Username not found or password mismatch
 
-            session.getTransaction().commit();
         } catch (Exception e) {
             if (session != null && session.getTransaction() != null) {
                 session.getTransaction().rollback();
             }
             e.printStackTrace();
+            return false;
         } finally {
             if (session != null) {
                 session.close();
@@ -225,18 +214,17 @@ public class UserDaoImpl implements UserDao {
         }
     }
 
-    private void navigateToTheDashboard() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/MainForm.fxml"));
-        AnchorPane anchorPane = loader.load();
+    @Override
+    public String getUserRole(String username) {
+        try (Session session = FactoryConfiguration.getInstance().getSession()) {
+            String hql = "SELECT u.user_role FROM User u WHERE u.username = :username";
+            Query<String> query = session.createQuery(hql, String.class);
+            query.setParameter("username", username);
 
-        Scene scene = new Scene(anchorPane);
-        Stage stage = new Stage();
-
-        stage.setScene(scene);
-        stage.setScene(anchorPane.getScene());
-        stage.centerOnScreen();
-        stage.setTitle("dashboard Form");
-        stage.show();
-        anpDashboard.getScene().getWindow().hide();
+            return query.uniqueResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null; // Handle or log the exception appropriately
+        }
     }
 }

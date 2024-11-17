@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="anpPayment" prefHeight="686.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Controller.PaymentFormController">
+<AnchorPane fx:id="anpPayment" prefHeight="694.0" prefWidth="946.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Controller.PaymentFormController">
    <children>
       <Text layoutX="343.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PAYMENT  FORM">
          <font>
@@ -21,16 +21,16 @@
       <TextField fx:id="txtPayAmount" layoutX="53.0" layoutY="292.0" onAction="#txtPayAmountOnAction" promptText="payAmount" />
       <TextField fx:id="txtDate" layoutX="242.0" layoutY="144.0" onAction="#txtDateOnAction" promptText="date" />
       <ComboBox fx:id="comboCourses" layoutX="241.0" layoutY="190.0" onAction="#comboCoursesOnAction" prefWidth="150.0" promptText="courses" />
-      <TableView fx:id="tblPayment" layoutX="34.0" layoutY="472.0" prefHeight="200.0" prefWidth="757.0">
+      <TableView fx:id="tblPayment" layoutX="53.0" layoutY="453.0" prefHeight="215.0" prefWidth="878.0">
         <columns>
           <TableColumn fx:id="colId" prefWidth="75.0" text="ID" />
-            <TableColumn fx:id="colUpfrontPay" prefWidth="123.199951171875" text="UPFRONTPAYMENT" />
-            <TableColumn fx:id="colBalancePay" prefWidth="124.00006103515625" text="BALANCEPAYMENT" />
-            <TableColumn fx:id="colCourseId" prefWidth="79.20001220703125" text="COURSEID" />
-            <TableColumn fx:id="colStudentId" prefWidth="82.39996337890625" text="STUDENTID" />
-            <TableColumn fx:id="colStatus" prefWidth="83.199951171875" text="STATUS" />
-            <TableColumn fx:id="colStudentCourseDetailId" prefWidth="96.80001220703127" text="STU_COU_ID" />
-            <TableColumn fx:id="colBtnRemove" prefWidth="90.40008544921875" text="REMOVE" />
+            <TableColumn fx:id="colUpfrontPay" prefWidth="191.199951171875" text="UPFRONTPAYMENT" />
+            <TableColumn fx:id="colBalancePay" prefWidth="151.2000732421875" text="BALANCEPAYMENT" />
+            <TableColumn fx:id="colCourseId" prefWidth="102.4000244140625" text="COURSEID" />
+            <TableColumn fx:id="colStudentId" prefWidth="93.60003662109375" text="STUDENTID" />
+            <TableColumn fx:id="colStatus" prefWidth="78.39996337890625" text="STATUS" />
+            <TableColumn fx:id="colStudentCourseDetailId" prefWidth="92.00006103515625" text="STU_COU_ID" />
+            <TableColumn fx:id="colBtnRemove" prefWidth="95.199951171875" text="REMOVE" />
         </columns>
       </TableView>
       <TextField fx:id="txtCoursefee" layoutX="53.0" layoutY="241.0" promptText="coursefee" />

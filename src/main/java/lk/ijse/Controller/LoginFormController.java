@@ -3,9 +3,12 @@ package lk.ijse.Controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import lk.ijse.Dao.Custom.UserDao;
 import lk.ijse.Dao.DaoFactory;
 
@@ -27,12 +30,37 @@ public class LoginFormController {
     private TextField txtUsername;
 
     UserDao userDao = (UserDao) DaoFactory.getDaoFactory().getDaoType(DaoFactory.DaoType.USER);
+    String username;
 
     public void btnLoginOnAction(ActionEvent actionEvent) throws IOException {
-        String username = txtUsername.getText();
+        username = txtUsername.getText();
         String password = txtPassword.getText();
 
-        userDao.checkCredential(username, password);
+        boolean isAuthenticated = userDao.checkCredential(username, password);
+
+        if (isAuthenticated) {
+            navigateToTheDashboard();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Invalid username or password!").show();
+        }
+    }
+
+    private void navigateToTheDashboard() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/MainForm.fxml"));
+        AnchorPane anchorPane = loader.load();
+
+        MainFormController mainFormController = loader.getController();
+        mainFormController.setUsername(username);
+
+        Scene scene = new Scene(anchorPane);
+        Stage stage = new Stage();
+
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.setTitle("Dashboard Form");
+        stage.show();
+
+        anpDashboard.getScene().getWindow().hide();
     }
 
     public void btnForgotPasswordOnAction(ActionEvent actionEvent) throws IOException {
