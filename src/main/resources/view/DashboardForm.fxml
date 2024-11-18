@@ -13,5 +13,10 @@
          </font>
       </Text>
       <Label fx:id="program" layoutX="192.0" layoutY="168.0" prefHeight="88.0" prefWidth="104.0" style="-fx-background-color: grey;" text="Label" />
+      <Label fx:id="lblStudent" layoutX="369.0" layoutY="168.0" prefHeight="88.0" prefWidth="104.0" style="-fx-background-color: grey;" text="Label" />
+      <Label fx:id="lblUser" layoutX="539.0" layoutY="168.0" prefHeight="88.0" prefWidth="104.0" style="-fx-background-color: grey;" text="Label" />
+      <Text layoutX="210.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="course count" />
+      <Text layoutX="383.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="student count" />
+      <Text layoutX="568.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="user count" />
    </children>
 </AnchorPane>

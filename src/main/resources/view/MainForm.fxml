@@ -7,7 +7,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="770.0" prefWidth="1154.0" style="-fx-background-color: white;" stylesheets="@../css/mainForm.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Controller.MainFormController">
    <children>
@@ -49,11 +48,6 @@
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Button>
-      <Text layoutX="24.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: blue;" text="E" wrappingWidth="20.0">
-         <font>
-            <Font name="Sylfaen" size="70.0" />
-         </font>
-      </Text>
       <ImageView fitHeight="36.0" fitWidth="40.0" layoutX="24.0" layoutY="229.0">
          <image>
             <Image url="@../images/icons8-dashboard-96.png" />
@@ -79,19 +73,14 @@
             <Image url="@../images/icons8-student-96.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="42.0" fitWidth="48.0" layoutX="735.0" layoutY="14.0">
+      <ImageView fitHeight="42.0" fitWidth="48.0" layoutX="783.0" layoutY="14.0">
          <image>
             <Image url="@../images/icons8-user-96.png" />
          </image>
       </ImageView>
-      <Label fx:id="lblCurrentUser" layoutX="792.0" layoutY="24.0" prefHeight="21.0" prefWidth="102.0" text="Label" />
+      <Label fx:id="lblCurrentUser" layoutX="848.0" layoutY="24.0" prefHeight="21.0" prefWidth="102.0" text="Label" />
       <Label layoutX="263.0" layoutY="26.0" text="DATE" />
       <Label fx:id="lblDate" layoutX="321.0" layoutY="26.0" prefHeight="26.0" prefWidth="250.0" text="Label" />
-      <Text layoutX="64.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="COOK">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Text>
       <Button fx:id="btnSettings" layoutY="550.0" mnemonicParsing="false" onAction="#btnSettingsOnAction" prefHeight="54.0" prefWidth="208.0" stylesheets="@../css/DashFile.css" text="                  SETTINGS">
          <styleClass>
             <String fx:value="logout1" />

@@ -19,4 +19,6 @@ public interface UserDao extends CrudDao<User> {
     boolean updateUser(User user);
 
     String getUserRole(String username);
+
+    int getUserCount();
 }

@@ -1,5 +1,7 @@
 package lk.ijse.Controller;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,6 +9,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 import lk.ijse.Dao.Custom.UserDao;
 import lk.ijse.Dao.DaoFactory;
 
@@ -43,15 +46,20 @@ public class MainFormController {
     @FXML
     private Label lblDate;
 
-    private String user;
 
     UserDao userDao = (UserDao) DaoFactory.getDaoFactory().getDaoType(DaoFactory.DaoType.USER);
 
     public void initialize() throws IOException {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd        HH:mm");
-        String formattedDateTime = LocalDateTime.now().format(formatter);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd           HH:mm:ss");
 
-        lblDate.setText(formattedDateTime);
+        // Create a timeline that updates the label every second
+        Timeline clock = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
+            String formattedDateTime = LocalDateTime.now().format(formatter);
+            lblDate.setText(formattedDateTime);
+        }));
+
+        clock.setCycleCount(Timeline.INDEFINITE); // Run indefinitely
+        clock.play(); // Start the clock
         loadDashboardForm();
     }
 

@@ -4,7 +4,6 @@ import lk.ijse.Dao.Custom.StudentDao;
 import lk.ijse.Entity.Student;
 import lk.ijse.Entity.Student_Course;
 import lk.ijse.Config.FactoryConfiguration;
-import org.hibernate.Cache;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
@@ -163,7 +162,42 @@ public class StudentDaoImpl implements StudentDao {
             return isRegistered;
         }
 
+    @Override
+    public int getStudentCount() {
+        int studentCount = 0;
+        Session session = null;
+
+        try {
+            // Get the session from the factory
+            session = FactoryConfiguration.getInstance().getSession();
+            session.beginTransaction();
+
+            // HQL query to count the number of courses
+            String hql = "SELECT COUNT(s) FROM Student s";
+            Query<Long> query = session.createQuery(hql, Long.class);
+
+            // Get the result and cast to int
+            Long countResult = query.uniqueResult();
+            if (countResult != null) {
+                studentCount = countResult.intValue();
+            }
+
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            if (session != null && session.getTransaction() != null) {
+                session.getTransaction().rollback();
+            }
+            e.printStackTrace(); // For debugging
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+
+        return studentCount;
     }
+}
+
 
 
 
