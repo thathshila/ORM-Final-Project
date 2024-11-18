@@ -10,9 +10,9 @@
 
 <AnchorPane prefHeight="770.0" prefWidth="1154.0" style="-fx-background-color: white;" stylesheets="@../css/mainForm.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Controller.MainFormController">
    <children>
-      <ImageView fitHeight="772.0" fitWidth="1154.0">
+      <ImageView fitHeight="772.0" fitWidth="1200.0">
          <image>
-            <Image url="@../images/abstract-hd-blue-background-light-blue-color-theme-with-3d-geometry-pattern_1000823-2013.jpg" />
+            <Image url="@../images/pexels-photo-349610.jpeg" />
          </image>
       </ImageView>
       <AnchorPane fx:id="anpMain" layoutX="208.0" layoutY="78.0" prefHeight="694.0" prefWidth="946.0" stylesheets="@../css/DashFile.css" />
@@ -78,14 +78,14 @@
             <Image url="@../images/icons8-student-96.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="42.0" fitWidth="48.0" layoutX="783.0" layoutY="14.0">
+      <ImageView fitHeight="42.0" fitWidth="48.0" layoutX="705.0" layoutY="14.0">
          <image>
             <Image url="@../images/icons8-user-96.png" />
          </image>
       </ImageView>
-      <Label fx:id="lblCurrentUser" layoutX="848.0" layoutY="24.0" prefHeight="21.0" prefWidth="102.0" text="Label" />
+      <Label fx:id="lblCurrentUser" layoutX="770.0" layoutY="24.0" prefHeight="21.0" prefWidth="102.0" />
       <Label layoutX="263.0" layoutY="26.0" text="DATE" />
-      <Label fx:id="lblDate" layoutX="321.0" layoutY="26.0" prefHeight="26.0" prefWidth="250.0" text="Label" />
+      <Label fx:id="lblDate" layoutX="321.0" layoutY="26.0" prefHeight="26.0" prefWidth="250.0" />
       <Button fx:id="btnSettings" layoutY="550.0" mnemonicParsing="false" onAction="#btnSettingsOnAction" prefHeight="54.0" prefWidth="208.0" stylesheets="@../css/DashFile.css" text="                  SETTINGS">
          <styleClass>
             <String fx:value="logout1" />

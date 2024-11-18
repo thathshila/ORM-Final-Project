@@ -1,7 +1,4 @@
-/* Set background color for the main AnchorPane */
-.anp {
-    -fx-background-color: #e0f7fa; /* Light blue background */
-}
+
 
 /* Set styles for text components */
 .textTitle {

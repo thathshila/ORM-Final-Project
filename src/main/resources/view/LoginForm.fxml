@@ -12,25 +12,25 @@
    <children>
       <ImageView fitHeight="700.0" fitWidth="1200.0">
          <image>
-            <Image url="@../images/protecting-culinary-traditions-1024x585.jpg" />
+            <Image url="@../images/360_F_827953194_0rpctRfqorWgrpMAv9NRxvrCWe8U4PFy.jpg" />
          </image>
       </ImageView>
-      <Text layoutX="165.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: yellow;" text="WELCOME TO " wrappingWidth="354.39999999999986">
+      <Text layoutX="81.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: yellow;" text="WELCOME TO " wrappingWidth="354.39999999999986">
          <font>
             <Font name="System Bold" size="50.0" />
          </font>
       </Text>
-      <AnchorPane layoutX="342.0" layoutY="157.0" prefHeight="446.0" prefWidth="400.0" style="-fx-background-color: white; -fx-background-radius: 20PX;">
+      <AnchorPane layoutX="123.0" layoutY="183.0" prefHeight="446.0" prefWidth="438.0" style="-fx-background-color: white; -fx-background-radius: 20PX;">
          <children>
             <Button fx:id="btnForgotPassword" layoutX="158.0" layoutY="241.0" mnemonicParsing="false" onAction="#btnForgotPasswordOnAction" prefHeight="59.0" prefWidth="259.0" style="-fx-font-size: 15px; -fx-text-fill: black;" stylesheets="@../css/login.css" text="forgot password?" />
-            <TextField fx:id="txtUsername" layoutX="28.0" layoutY="95.0" prefHeight="33.0" prefWidth="354.0" promptText="username" />
-            <TextField fx:id="txtPassword" layoutX="49.0" layoutY="188.0" prefHeight="34.0" prefWidth="354.0" promptText="password" />
+            <TextField fx:id="txtUsername" layoutX="31.0" layoutY="84.0" prefHeight="33.0" prefWidth="354.0" promptText="username" />
+            <TextField fx:id="txtPassword" layoutX="31.0" layoutY="181.0" prefHeight="34.0" prefWidth="354.0" promptText="password" />
             <Text layoutX="43.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UserName">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Text>
-            <Text layoutX="49.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+            <Text layoutX="44.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
                <font>
                   <Font name="System Bold" size="19.0" />
                </font>
@@ -38,7 +38,7 @@
             <Button fx:id="btnLogin" layoutX="65.0" layoutY="340.0" mnemonicParsing="false" onAction="#btnLoginOnAction" prefHeight="59.0" prefWidth="307.0" text="LOGIN" />
          </children>
       </AnchorPane>
-      <Text layoutX="536.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: yellow;" text="CULINARY  ACEDAMY">
+      <Text layoutX="435.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: yellow;" text="CULINARY  ACEDAMY">
          <font>
             <Font name="System Bold" size="50.0" />
          </font>

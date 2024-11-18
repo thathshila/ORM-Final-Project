@@ -1,7 +1,7 @@
-/* Background color for the main AnchorPane */
-.anpStudent {
-    -fx-background-color: #e0f7fa; /* Light blue background */
-}
+/*!* Background color for the main AnchorPane *!*/
+/*.anpStudent {*/
+/*    -fx-background-color: #e0f7fa; !* Light blue background *!*/
+/*}*/
 
 /* Title text styling */
 .textTitle {

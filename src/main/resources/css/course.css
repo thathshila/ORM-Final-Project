@@ -1,7 +1,7 @@
-/* Set background color for the main AnchorPane */
-.anpCourse {
-    -fx-background-color: #D4F6FF; /* Light blue background */
-}
+/*!* Set background color for the main AnchorPane *!*/
+/*.anpCourse {*/
+/*    -fx-background-color: #D4F6FF; !* Light blue background *!*/
+/*}*/
 
 /* Title text styling */
 .textTitle {

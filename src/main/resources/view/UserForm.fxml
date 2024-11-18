@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="anpUser" prefHeight="694.0" prefWidth="946.0" style="-fx-background-color: D4F6FF;" stylesheets="@../css/user.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Controller.UserFormController">
+<AnchorPane fx:id="anpUser" prefHeight="694.0" prefWidth="946.0" stylesheets="@../css/user.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Controller.UserFormController">
    <children>
       <Text layoutX="424.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textTitle" text="USER FORM" />
       <TextField fx:id="txtRole" layoutX="521.0" layoutY="196.0" onAction="#txtRoleOnAction" prefHeight="35.0" prefWidth="334.0" promptText="role" styleClass="textField" />
