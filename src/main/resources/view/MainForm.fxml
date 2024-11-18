@@ -10,6 +10,11 @@
 
 <AnchorPane prefHeight="770.0" prefWidth="1154.0" style="-fx-background-color: white;" stylesheets="@../css/mainForm.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Controller.MainFormController">
    <children>
+      <ImageView fitHeight="772.0" fitWidth="1154.0">
+         <image>
+            <Image url="@../images/abstract-hd-blue-background-light-blue-color-theme-with-3d-geometry-pattern_1000823-2013.jpg" />
+         </image>
+      </ImageView>
       <AnchorPane fx:id="anpMain" layoutX="208.0" layoutY="78.0" prefHeight="694.0" prefWidth="946.0" stylesheets="@../css/DashFile.css" />
       <Button fx:id="btnDashboard" layoutX="-4.0" layoutY="224.0" mnemonicParsing="false" onAction="#btnDashboardOnAction" prefHeight="54.0" prefWidth="208.0" styleClass="textFieldRedius" stylesheets="@../css/DashFile.css" text="                       DASHBOARD">
          <font>
