@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -38,5 +39,15 @@
       <ComboBox fx:id="comboStudent" layoutX="240.0" layoutY="292.0" onAction="#comboStudentOnAction" prefWidth="150.0" promptText="students" />
       <Button fx:id="btnConfirm" layoutX="159.0" layoutY="369.0" mnemonicParsing="false" onAction="#btnConfirmOnAction" prefHeight="39.0" prefWidth="70.0" text="confirm" />
       <TextField fx:id="txtStuCouDetail" layoutX="241.0" layoutY="241.0" promptText="stu_cou_id" />
+      <Label fx:id="lblBalanceAmount" layoutX="661.0" layoutY="189.0" prefHeight="27.0" prefWidth="165.0" text="Label" />
+      <ComboBox fx:id="comboPayHistory" layoutX="549.0" layoutY="144.0" onAction="#comboPayHistoryOnAction" prefWidth="150.0" promptText="stu_cou_id" />
+      <Text layoutX="551.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="balance amount" />
+      <Text layoutX="551.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="upfront payment" />
+      <Label fx:id="lblUpfrontAmount" layoutX="661.0" layoutY="237.0" prefHeight="26.0" prefWidth="186.0" text="Label" />
+      <Label fx:id="lblStatus" layoutX="664.0" layoutY="279.0" prefHeight="26.0" prefWidth="186.0" text="Label" />
+      <Text layoutX="551.0" layoutY="302.0" strokeType="OUTSIDE" strokeWidth="0.0" text="status" />
+      <Text layoutX="549.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text layoutX="556.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="paid date" />
+      <Label fx:id="lblDate" layoutX="664.0" layoutY="322.0" prefHeight="26.0" prefWidth="186.0" text="Label" />
    </children>
 </AnchorPane>

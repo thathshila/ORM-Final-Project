@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="MySQL" uuid="0c823014-b85b-4c6c-9a69-df5ed9ab2c1d">
+    <data-source source="LOCAL" name="culinary_academy@localhost" uuid="8fc12e2d-ccbd-41fa-a9c5-1093d0c0d13e">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/ culinary_academy</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/culinary_academy</jdbc-url>
       <jdbc-additional-properties>
         <property name="com.intellij.clouds.kubernetes.db.host.port" />
         <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />

@@ -91,6 +91,21 @@ public class PaymentFormController {
     @FXML
     private Button btnSave;
 
+    @FXML
+    private ComboBox<String> comboPayHistory;
+
+    @FXML
+    private Label lblBalanceAmount;
+
+    @FXML
+    private Label lblDate;
+
+    @FXML
+    private Label lblStatus;
+
+    @FXML
+    private Label lblUpfrontAmount;
+
     StudentCourseDao studentCourseDao = (StudentCourseDao) DaoFactory.getDaoFactory().getDaoType(DaoFactory.DaoType.STUDENT_COURSE);
     StudentBo studentBo = (StudentBo) BoFactory.getBoFactory().getBoType(BoFactory.BoType.STUDENT);
     ArrayList<Student> studentArrayList = new ArrayList<>();
@@ -100,19 +115,30 @@ public class PaymentFormController {
     ObservableList<String> studentObservableList = FXCollections.observableArrayList();
     ObservableList<PaymentTm> paymentTmObservableList = FXCollections.observableArrayList();
     PaymentBo paymentBo = (PaymentBo) BoFactory.getBoFactory().getBoType(BoFactory.BoType.PAYMENT);
+    ArrayList<Payment> paymentArrayList = new ArrayList<>();
+    ObservableList<String> paymentObservableList = FXCollections.observableArrayList();
 
     public void initialize() throws IOException {
         generateNewId();
         getAllStudentCourses();
         getAllStudent();
+        getAllPayment();
         searchStudent();
+        searchPayment();
         setDate();
-        setTable();
         setCellValueFactory();
     }
 
-    private void setTable() {
+    private void searchPayment() {
+        for (Payment payment : paymentArrayList) {
+            paymentObservableList.add(String.valueOf(payment.getStudent_course().getStudent_course_id()));
+        }
+        comboPayHistory.setItems(paymentObservableList);
+    }
 
+    private void getAllPayment() throws IOException {
+        List<Payment> paymentList = paymentBo.getPaymentList();
+        paymentArrayList = (ArrayList<Payment>) paymentList;
     }
 
     private void setCellValueFactory() {
@@ -238,7 +264,7 @@ public class PaymentFormController {
 
         try {
             upFront = Double.parseDouble(txtPayAmount.getText());
-            getFee = Double.parseDouble(txtCoursefee.getText());
+            getFee = Double.parseDouble(lblBalanceAmount.getText());
         } catch (NumberFormatException e) {
             new Alert(Alert.AlertType.ERROR, "Invalid number format for payment or course fee").show();
             return;
@@ -285,20 +311,29 @@ public class PaymentFormController {
         String studentId = comboStudent.getValue();
         ObservableList<String> studentCourseObservableList = FXCollections.observableArrayList();
 
-        // Loop through student courses and add matching course names to the list
         for (Student_Course studentCourse : studentCourseArrayList) {
             if (studentCourse.getStudent().getStu_id().equals(studentId)) {
                 studentCourseObservableList.add(studentCourse.getCourse().getCourse_name());
             }
         }
-
-        // Set the items for the comboCourses ComboBox
         comboCourses.setItems(studentCourseObservableList);
-
-        // Optionally, set the first course as the selected value if the list is not empty
         if (!studentCourseObservableList.isEmpty()) {
             comboCourses.setValue(studentCourseObservableList.get(0));
         }
    }
+
+    @FXML
+    public void comboPayHistoryOnAction(ActionEvent actionEvent) {
+        Long stu_cou_id = Long.valueOf(comboPayHistory.getValue());
+
+        for (Payment payment : paymentArrayList) {
+            if(payment.getStudent_course().getStudent_course_id().equals(stu_cou_id)) {
+                lblBalanceAmount.setText(String.valueOf(payment.getBalance_amount()));
+                lblDate.setText(payment.getPay_date());
+                lblStatus.setText(payment.getStatus());
+                lblUpfrontAmount.setText(String.valueOf(payment.getUpfront_amount()));
+            }
+        }
+    }
 }
 

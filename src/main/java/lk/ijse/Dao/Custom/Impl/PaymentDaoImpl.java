@@ -6,9 +6,11 @@ import lk.ijse.Dao.Custom.PaymentDao;
 import lk.ijse.Dto.PaymentDto;
 import lk.ijse.Entity.Payment;
 import lk.ijse.Config.FactoryConfiguration;
+import lk.ijse.Entity.Student;
 import lk.ijse.Entity.Student_Course;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.NativeQuery;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -46,7 +48,14 @@ public class PaymentDaoImpl implements PaymentDao {
 
     @Override
     public List<Payment> getAll() throws IOException {
-        return List.of();
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        NativeQuery query = session.createNativeQuery("SELECT * FROM payment");
+        query.addEntity(Payment.class);
+        List<Payment> resultList = query.getResultList();
+        transaction.commit();
+        session.close();
+        return resultList;
     }
 
     @Override
