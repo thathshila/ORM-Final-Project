@@ -1,18 +1,19 @@
-/* Set background color for the main AnchorPane */
+
 #anpSetting {
-    -fx-background-color: #53aad6; /* Light blue background */
+    -fx-background-color: #fdf3d7; /* Creamy yellow background */
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 10, 0, 0, 3); /* Subtle shadow */
 }
 
 /* Title Label styling */
 .label {
     -fx-font-size: 20px;
     -fx-font-weight: bold;
-    -fx-text-fill: #0D47A1; /* Deep blue for text */
+    -fx-text-fill: #7b4b28; /* Warm brown for text */
 }
 
 /* Button styling */
 .button {
-    -fx-background-color: #1E88E5; /* Medium blue background */
+    -fx-background-color: #d4a76e; /* Light brown background */
     -fx-text-fill: #ffffff; /* White text */
     -fx-font-size: 14px;
     -fx-font-weight: bold;
@@ -23,22 +24,27 @@
 }
 
 .button:hover {
-    -fx-background-color: #1565C0; /* Darker blue on hover */
+    -fx-background-color: #b98b5d; /* Slightly darker brown on hover */
 }
 
 .button:pressed {
-    -fx-background-color: #0D47A1; /* Deep blue when pressed */
+    -fx-background-color: #7b4b28; /* Deep brown when pressed */
 }
 
 /* AnchorPane inside the main pane */
 #anpBtns {
-    -fx-background-color: #BBDEFB; /* Light blue for nested AnchorPane */
-    -fx-border-color: #1E88E5;
+    -fx-background-color: #f6e6c2; /* Lighter yellow for nested AnchorPane */
+    -fx-border-color: #d4a76e; /* Light brown border */
     -fx-border-width: 2px;
     -fx-border-radius: 5px;
 }
 
-/* Add subtle shadow to the main AnchorPane */
-#anpSetting {
-    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 10, 0, 0, 3);
+/* Styling for input fields */
+.textField {
+    -fx-background-color: #ffffff; /* White background */
+    -fx-border-color: #d4a76e; /* Light brown border */
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-text-fill: #7b4b28; /* Brown text */
+    -fx-prompt-text-fill: #a3896f; /* Light brown prompt text */
 }
