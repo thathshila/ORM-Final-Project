@@ -19,6 +19,8 @@ import java.time.format.DateTimeFormatter;
 
 public class MainFormController {
 
+    String username;
+
     @FXML
     private AnchorPane anpMain;
 
@@ -46,20 +48,28 @@ public class MainFormController {
     @FXML
     private Label lblDate;
 
+    private boolean userAllowed;
+
+    private boolean studentAllowed;
+
+    private boolean paymentAllowed;
+
+    private boolean programAllowed;
+
+    private boolean settingsAllowed;
 
     UserDao userDao = (UserDao) DaoFactory.getDaoFactory().getDaoType(DaoFactory.DaoType.USER);
 
     public void initialize() throws IOException {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd           HH:mm:ss");
 
-        // Create a timeline that updates the label every second
         Timeline clock = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
             String formattedDateTime = LocalDateTime.now().format(formatter);
             lblDate.setText(formattedDateTime);
         }));
 
         clock.setCycleCount(Timeline.INDEFINITE); // Run indefinitely
-        clock.play(); // Start the clock
+        clock.play();
         loadDashboardForm();
     }
 
@@ -76,6 +86,8 @@ public class MainFormController {
 
         anpMain.getChildren().clear();
         anpMain.getChildren().add(dashboardPane);
+        setAccess("Admin");
+        setAccess("Coordinator");
     }
 
     @FXML
@@ -84,6 +96,7 @@ public class MainFormController {
 
         anpMain.getChildren().clear();
         anpMain.getChildren().add(paymentPane);
+        setAccess("Admin");
     }
 
     @FXML
@@ -92,6 +105,7 @@ public class MainFormController {
 
         anpMain.getChildren().clear();
         anpMain.getChildren().add(coursePane);
+        setAccess("Admin");
     }
 
     @FXML
@@ -100,14 +114,29 @@ public class MainFormController {
 
         anpMain.getChildren().clear();
         anpMain.getChildren().add(studentPane);
+        setAccess("Admin");
+        setAccess("Coordinator");
     }
 
     @FXML
     void btnUserOnAction(ActionEvent event) throws IOException {
+        if (userAllowed) {
         AnchorPane userPane = FXMLLoader.load(this.getClass().getResource("/view/UserForm.fxml"));
 
         anpMain.getChildren().clear();
         anpMain.getChildren().add(userPane);
+        } else {
+            // Show an alert if access is denied
+            showAlert("Access Denied", "You do not have permission to access the User form.");
+        }
+        setAccess("Admin");
+    }
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
     @FXML
@@ -116,9 +145,8 @@ public class MainFormController {
 
         anpMain.getChildren().clear();
         anpMain.getChildren().add(settingPane);
+        setAccess("Admin");
     }
-
-   String username;
 
     public void setUsername(String username) {
         this.username = username;
@@ -127,15 +155,57 @@ public class MainFormController {
     }
 
     private String getUserRole(String username) {
-        return userDao.getUserRole(username); // Ensure getUserRole(username) exists in UserDao and returns the role as a String
+        return userDao.getUserRole(username);
     }
 
     private void setUserRole(String userRole) {
         if (userRole != null) {
-            lblCurrentUser.setText(userRole); // Display the user role on the label
+            lblCurrentUser.setText(userRole);
         } else {
             lblCurrentUser.setText("Role not found");
         }
+    }
+
+    public void setAccess(String userRole) {
+        lblCurrentUser.setText(userRole);
+
+    // Reset all access to false initially
+    userAllowed = false;
+    studentAllowed = false;
+    paymentAllowed = false;
+    programAllowed = false;
+    settingsAllowed = false;
+
+    if (userRole != null) {
+        System.out.println("userRole: " + userRole);
+
+        switch (userRole) {
+            case "Admin":
+                userAllowed = true;
+                studentAllowed = true;
+                paymentAllowed = true;
+                programAllowed = true;
+                settingsAllowed = true;
+                break;
+
+            case "Coordinator":
+                studentAllowed = true;
+                break;
+
+            default:
+                // No access for other roles
+                break;
+        }
+
+        // Enable or disable buttons based on access levels
+        btnUser.setDisable(!userAllowed);
+        btnStudent.setDisable(!studentAllowed);
+        btnPayment.setDisable(!paymentAllowed);
+        btnProgram.setDisable(!programAllowed);
+        btnSettings.setDisable(!settingsAllowed);
+    } else {
+        lblCurrentUser.setText("No role assigned");
+    }
     }
 }
 
