@@ -5,18 +5,27 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="anpDash" prefHeight="649.0" prefWidth="946.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.DashboardFormController">
+<AnchorPane fx:id="anpDash" prefHeight="649.0" prefWidth="946.0" stylesheets="@../css/dashboard.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.DashboardFormController">
    <children>
       <Text layoutX="369.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DASHBOARD FORM">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Label fx:id="program" layoutX="192.0" layoutY="168.0" prefHeight="88.0" prefWidth="104.0" style="-fx-background-color: grey;" text="Label" />
-      <Label fx:id="lblStudent" layoutX="369.0" layoutY="168.0" prefHeight="88.0" prefWidth="104.0" style="-fx-background-color: grey;" text="Label" />
-      <Label fx:id="lblUser" layoutX="539.0" layoutY="168.0" prefHeight="88.0" prefWidth="104.0" style="-fx-background-color: grey;" text="Label" />
-      <Text layoutX="210.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="course count" />
-      <Text layoutX="383.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="student count" />
-      <Text layoutX="568.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="user count" />
+      <Label fx:id="program" layoutX="212.0" layoutY="180.0" prefHeight="88.0" prefWidth="104.0" />
+      <Label fx:id="lblStudent" layoutX="389.0" layoutY="168.0" prefHeight="88.0" prefWidth="104.0" />
+      <Label fx:id="lblUser" layoutX="568.0" layoutY="168.0" prefHeight="88.0" prefWidth="104.0" />
+      <Text layoutX="210.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="course count">
+         <font>
+            <Font size="19.0" />
+         </font></Text>
+      <Text layoutX="383.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="student count">
+         <font>
+            <Font size="19.0" />
+         </font></Text>
+      <Text layoutX="568.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="user count">
+         <font>
+            <Font size="19.0" />
+         </font></Text>
    </children>
 </AnchorPane>

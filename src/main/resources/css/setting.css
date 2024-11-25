@@ -1,8 +1,8 @@
 
-#anpSetting {
-    -fx-background-color: #fdf3d7; /* Creamy yellow background */
-    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 10, 0, 0, 3); /* Subtle shadow */
-}
+/*#anpSetting {*/
+/*    -fx-background-color: #fdf3d7; !* Creamy yellow background *!*/
+/*    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 10, 0, 0, 3); !* Subtle shadow *!*/
+/*}*/
 
 /* Title Label styling */
 .label {
@@ -32,12 +32,12 @@
 }
 
 /* AnchorPane inside the main pane */
-#anpBtns {
-    -fx-background-color: #f6e6c2; /* Lighter yellow for nested AnchorPane */
-    -fx-border-color: #d4a76e; /* Light brown border */
-    -fx-border-width: 2px;
-    -fx-border-radius: 5px;
-}
+/*#anpBtns {*/
+/*    -fx-background-color: #f6e6c2; !* Lighter yellow for nested AnchorPane *!*/
+/*    -fx-border-color: #d4a76e; !* Light brown border *!*/
+/*    -fx-border-width: 2px;*/
+/*    -fx-border-radius: 5px;*/
+/*}*/
 
 /* Styling for input fields */
 .textField {

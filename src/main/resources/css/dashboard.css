@@ -1,0 +1,76 @@
+/* General Dashboard Style */
+
+/* Title Style */
+.text {
+    -fx-fill: #5a3724; /* Rich brown color */
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 4, 0, 2, 2);
+}
+
+/* Label Container Style */
+.label {
+    -fx-background-color: #ffe680; /* Warm yellow */
+    -fx-border-color: #c9a26d; /* Soft brown border */
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-text-fill: #5a3724;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 4, 0, 2, 2);
+}
+
+/* Text Above Labels */
+.text[styleClass~="count"] {
+    -fx-fill: #2a4d69; /* Deep blue */
+    -fx-font-size: 18px;
+    -fx-font-weight: semi-bold;
+}
+
+/* Add images as placeholders for future enhancement */
+.program {
+    -fx-background-image: url('images/program-icon.png');
+    -fx-background-size: cover;
+    -fx-background-position: center;
+    -fx-border-color: #d4a373;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+
+.lblStudent {
+    -fx-background-image: url('images/student-icon.png');
+    -fx-background-size: cover;
+    -fx-background-position: center;
+    -fx-border-color: #a38c6b;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+
+.lblUser {
+    -fx-background-image: url('images/user-icon.png');
+    -fx-background-size: cover;
+    -fx-background-position: center;
+    -fx-border-color: #7c5a35;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+
+/* Hover Effects */
+.label:hover {
+    -fx-background-color: #ffeb99; /* Lighter yellow */
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 6, 0, 3, 3);
+}
+
+.text:hover {
+    -fx-fill: #394867; /* Darker blue */
+}
+
+/* Dashboard Layout */
+#anpDash {
+    -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 0, 0);
+    -fx-border-color: #b38b6d;
+    -fx-border-width: 2;
+    -fx-border-radius: 15;
+}
