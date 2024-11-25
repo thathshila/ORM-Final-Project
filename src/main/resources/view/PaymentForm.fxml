@@ -10,19 +10,19 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="anpPayment" prefHeight="694.0" prefWidth="946.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PaymentFormController">
+<AnchorPane fx:id="anpPayment" prefHeight="694.0" prefWidth="946.0" stylesheets="@../css/payment.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PaymentFormController">
    <children>
       <Text layoutX="343.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PAYMENT  FORM">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Text>
-      <TextField fx:id="txtStatus" layoutX="53.0" layoutY="190.0" onAction="#txtStatusOnAction" promptText="status" />
-      <TextField fx:id="txtId" layoutX="53.0" layoutY="144.0" onAction="#txtIdOnAction" promptText="id" />
-      <TextField fx:id="txtPayAmount" layoutX="53.0" layoutY="292.0" onAction="#txtPayAmountOnAction" promptText="payAmount" />
-      <TextField fx:id="txtDate" layoutX="242.0" layoutY="144.0" onAction="#txtDateOnAction" promptText="date" />
-      <ComboBox fx:id="comboCourses" layoutX="241.0" layoutY="190.0" onAction="#comboCoursesOnAction" prefWidth="150.0" promptText="courses" />
-      <TableView fx:id="tblPayment" layoutX="53.0" layoutY="453.0" prefHeight="215.0" prefWidth="878.0">
+      <TextField fx:id="txtStatus" layoutX="66.0" layoutY="317.0" onAction="#txtStatusOnAction" prefHeight="26.0" prefWidth="199.0" promptText="status" />
+      <TextField fx:id="txtId" layoutX="63.0" layoutY="118.0" onAction="#txtIdOnAction" prefHeight="27.0" prefWidth="199.0" promptText="id" />
+      <TextField fx:id="txtPayAmount" layoutX="305.0" layoutY="317.0" onAction="#txtPayAmountOnAction" prefHeight="26.0" prefWidth="199.0" promptText="payAmount" />
+      <TextField fx:id="txtDate" layoutX="63.0" layoutY="184.0" onAction="#txtDateOnAction" prefHeight="26.0" prefWidth="199.0" promptText="date" />
+      <ComboBox fx:id="comboCourses" layoutX="297.0" layoutY="184.0" onAction="#comboCoursesOnAction" prefHeight="26.0" prefWidth="199.0" promptText="courses" />
+      <TableView fx:id="tblPayment" layoutX="34.0" layoutY="464.0" prefHeight="215.0" prefWidth="878.0">
         <columns>
           <TableColumn fx:id="colId" prefWidth="75.0" text="ID" />
             <TableColumn fx:id="colUpfrontPay" prefWidth="191.199951171875" text="UPFRONTPAYMENT" />
@@ -34,20 +34,82 @@
             <TableColumn fx:id="colBtnRemove" prefWidth="95.199951171875" text="REMOVE" />
         </columns>
       </TableView>
-      <TextField fx:id="txtCoursefee" layoutX="53.0" layoutY="241.0" promptText="coursefee" />
-      <Button fx:id="btnSave" layoutX="66.0" layoutY="369.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="39.0" prefWidth="49.0" text="Save" />
-      <ComboBox fx:id="comboStudent" layoutX="240.0" layoutY="292.0" onAction="#comboStudentOnAction" prefWidth="150.0" promptText="students" />
-      <Button fx:id="btnConfirm" layoutX="159.0" layoutY="369.0" mnemonicParsing="false" onAction="#btnConfirmOnAction" prefHeight="39.0" prefWidth="70.0" text="confirm" />
-      <TextField fx:id="txtStuCouDetail" layoutX="241.0" layoutY="241.0" promptText="stu_cou_id" />
-      <Label fx:id="lblBalanceAmount" layoutX="661.0" layoutY="189.0" prefHeight="27.0" prefWidth="165.0" text="Label" />
-      <ComboBox fx:id="comboPayHistory" layoutX="549.0" layoutY="144.0" onAction="#comboPayHistoryOnAction" prefWidth="150.0" promptText="stu_cou_id" />
-      <Text layoutX="551.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="balance amount" />
-      <Text layoutX="551.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="upfront payment" />
-      <Label fx:id="lblUpfrontAmount" layoutX="661.0" layoutY="237.0" prefHeight="26.0" prefWidth="186.0" text="Label" />
-      <Label fx:id="lblStatus" layoutX="664.0" layoutY="279.0" prefHeight="26.0" prefWidth="186.0" text="Label" />
-      <Text layoutX="551.0" layoutY="302.0" strokeType="OUTSIDE" strokeWidth="0.0" text="status" />
+      <TextField fx:id="txtCoursefee" layoutX="64.0" layoutY="253.0" prefHeight="26.0" prefWidth="199.0" promptText="coursefee" />
+      <Button fx:id="btnSave" layoutX="200.0" layoutY="388.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="39.0" prefWidth="176.0" text="Save" />
+      <ComboBox fx:id="comboStudent" layoutX="298.0" layoutY="118.0" onAction="#comboStudentOnAction" prefHeight="26.0" prefWidth="199.0" promptText="students" />
+      <Button fx:id="btnConfirm" layoutX="475.0" layoutY="388.0" mnemonicParsing="false" onAction="#btnConfirmOnAction" prefHeight="39.0" prefWidth="186.0" text="confirm" />
+      <TextField fx:id="txtStuCouDetail" layoutX="298.0" layoutY="251.0" prefHeight="26.0" prefWidth="199.0" promptText="stu_cou_id" />
+      <Label fx:id="lblBalanceAmount" layoutX="689.0" layoutY="242.0" prefHeight="27.0" prefWidth="230.0" style="-fx-border-color: blue;" />
+      <ComboBox fx:id="comboPayHistory" layoutX="689.0" layoutY="144.0" onAction="#comboPayHistoryOnAction" prefHeight="27.0" prefWidth="230.0" promptText="stu_cou_id" />
+      <Text layoutX="569.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Balance Amount">
+         <font>
+            <Font size="14.0" />
+         </font></Text>
+      <Text layoutX="567.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Upfront Payment">
+         <font>
+            <Font size="14.0" />
+         </font></Text>
+      <Label fx:id="lblUpfrontAmount" layoutX="689.0" layoutY="199.0" prefHeight="26.0" prefWidth="230.0" style="-fx-border-color: blue;" />
+      <Label fx:id="lblStatus" layoutX="689.0" layoutY="289.0" prefHeight="26.0" prefWidth="230.0" style="-fx-border-color: blue;" />
+      <Text layoutX="569.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status">
+         <font>
+            <Font size="14.0" />
+         </font></Text>
       <Text layoutX="549.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Text layoutX="556.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="paid date" />
-      <Label fx:id="lblDate" layoutX="664.0" layoutY="322.0" prefHeight="26.0" prefWidth="186.0" text="Label" />
+      <Text layoutX="569.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paid Date">
+         <font>
+            <Font size="14.0" />
+         </font></Text>
+      <Label fx:id="lblDate" layoutX="690.0" layoutY="330.0" prefHeight="26.0" prefWidth="230.0" style="-fx-border-color: blue;" />
+      <Text layoutX="65.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment  id">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="65.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="702.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PAYMENT HISTORY">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="566.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student_Detail_Id">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="301.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Id">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="300.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Course Id">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="66.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Course fee">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="302.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student-Detail_Id">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="66.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="305.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pay Amount">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
