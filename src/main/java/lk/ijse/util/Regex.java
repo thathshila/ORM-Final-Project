@@ -56,7 +56,7 @@ public class Regex {
             textField.setStyle("-fx-background-color: #B0EBB4;");
             return true;
         } else {
-            textField.setStyle("-fx-background-color: #FA26A0;");
+            textField.setStyle("-fx-border-color: rgb(255,0,68);");
             return false;
         }
     }

@@ -199,8 +199,6 @@ public class StudentFormController {
         txtFree.clear();
         txtcourseName.clear();
         txtSearch.clear();
-        // comboUser.getItems().clear();
-        // comboCourse.getItems().clear();
     }
 
     private void setUserId() {
