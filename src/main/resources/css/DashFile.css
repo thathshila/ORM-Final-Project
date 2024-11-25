@@ -21,7 +21,11 @@
     -fx-background-color: transparent;
     -fx-padding: 5px;
     -fx-cursor: hand;
-    -fx-background-radius: 0px;
+    -fx-border-radius:20px;
+    -fx-background-radius: 20px;
+}
+.logout1:hover{
+    -fx-background-color: #B0EBB4;
 }
 .logout:hover{
     -fx-background-color: #c77dff;

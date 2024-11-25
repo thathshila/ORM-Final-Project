@@ -14,7 +14,7 @@
 /* Styling for text fields */
 .text-field {
     -fx-background-color: #2d2d2d; /* Darker background */
-    -fx-text-fill: #ffffff; /* White text */
+    -fx-text-fill: black; /* White text */
     -fx-prompt-text-fill: #aaaaaa; /* Light gray prompt text */
     -fx-border-color: #4CAF50; /* Light green border */
     -fx-border-radius: 5px;

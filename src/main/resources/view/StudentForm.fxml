@@ -9,51 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<!--<?xml version="1.0" encoding="UTF-8"?>-->
-<!--<?import javafx.scene.control.Button?>-->
-<!--<?import javafx.scene.control.ComboBox?>-->
-<!--<?import javafx.scene.control.TableColumn?>-->
-<!--<?import javafx.scene.control.TableView?>-->
-<!--<?import javafx.scene.control.TextField?>-->
-<!--<?import javafx.scene.layout.AnchorPane?>-->
-<!--<?import javafx.scene.text.Font?>-->
-<!--<?import javafx.scene.text.Text?>-->
-<!--<AnchorPane fx:id="anpStudent" prefHeight="694.0" prefWidth="946.0" stylesheets="@../css/student.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Controller.StudentFormController">-->
-<!--   <children>-->
-<!--      <Text layoutX="398.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="STUDENT  FORM">-->
-<!--         <font>-->
-<!--            <Font name="System Bold" size="22.0" />-->
-<!--         </font>-->
-<!--      </Text>-->
-<!--      <TextField fx:id="txtId" layoutX="94.0" layoutY="188.0" onAction="#txtIdOnAction" prefHeight="36.0" prefWidth="208.0" promptText="id" />-->
-<!--      <TextField fx:id="txtAddress" layoutX="94.0" layoutY="329.0" onAction="#txtAddressOnAction" prefHeight="36.0" prefWidth="208.0" promptText="address" />-->
-<!--      <TextField fx:id="txtDate" layoutX="104.0" layoutY="92.0" onAction="#txtDateOnAction" prefHeight="36.0" prefWidth="248.0" promptText="date" />-->
-<!--      <TextField fx:id="txtContact" layoutX="339.0" layoutY="188.0" onAction="#txtContactOnAction" prefHeight="36.0" prefWidth="208.0" promptText="contact" />-->
-<!--      <TextField fx:id="txtName" layoutX="94.0" layoutY="255.0" onAction="#txtNameOnAction" prefHeight="36.0" prefWidth="208.0" promptText="name" />-->
-<!--      <ComboBox fx:id="comboUser" layoutX="335.0" layoutY="257.0" onAction="#comboUserOnAction" prefHeight="36.0" prefWidth="216.0" promptText="user" />-->
-<!--      <ComboBox fx:id="comboCourse" layoutX="610.0" layoutY="157.0" onAction="#comboCourseOnAction" prefHeight="36.0" prefWidth="232.0" promptText="course" />-->
-<!--      <TextField fx:id="txtSearch" layoutX="508.0" layoutY="92.0" prefHeight="36.0" prefWidth="334.0" promptText="search" />-->
-<!--      <TableView fx:id="tblStudent" layoutX="67.0" layoutY="480.0" prefHeight="200.0" prefWidth="794.0">-->
-<!--        <columns>-->
-<!--          <TableColumn fx:id="colId" prefWidth="83.20001220703125" text="ID" />-->
-<!--          <TableColumn fx:id="colName" prefWidth="144.7999725341797" text="NAME" />-->
-<!--            <TableColumn fx:id="colAddress" minWidth="7.20001220703125" prefWidth="124.800048828125" text="ADDRESS" />-->
-<!--            <TableColumn fx:id="colContact" prefWidth="126.39996337890625" text="CONTACT" />-->
-<!--            <TableColumn fx:id="colUser" prefWidth="144.0" text="USER" />-->
-<!--            <TableColumn fx:id="colDate" prefWidth="177.5999755859375" text="DATE" />-->
-<!--        </columns>-->
-<!--      </TableView>-->
-<!--      <Button fx:id="btnSave" layoutX="118.0" layoutY="424.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="36.0" prefWidth="87.0" text="SAVE" />-->
-<!--      <Button fx:id="btnUpdate" layoutX="280.0" layoutY="424.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="36.0" prefWidth="94.0" text="UPDATE" />-->
-<!--      <Button fx:id="btnDelete" layoutX="464.0" layoutY="424.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="36.0" prefWidth="87.0" text="DELETE" />-->
-<!--      <Button fx:id="btnClear" layoutX="638.0" layoutY="424.0" mnemonicParsing="false" onAction="#btnClearOnAction" prefHeight="36.0" prefWidth="94.0" text="CLEAR" />-->
-<!--      <TextField fx:id="txtcourseName" layoutX="607.0" layoutY="219.0" prefHeight="36.0" prefWidth="232.0" promptText="courseName" />-->
-<!--      <TextField fx:id="txtDuration" layoutX="610.0" layoutY="275.0" prefHeight="36.0" prefWidth="232.0" promptText="Duration" />-->
-<!--      <TextField fx:id="txtFree" layoutX="610.0" layoutY="336.0" prefHeight="36.0" prefWidth="232.0" promptText="fee" />-->
-<!--   </children>-->
-<!--</AnchorPane>-->
-
-<AnchorPane fx:id="anpStudent" prefHeight="694.0" prefWidth="946.0" styleClass="anpStudent" stylesheets="@../css/student.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Controller.StudentFormController">
+<AnchorPane fx:id="anpStudent" prefHeight="694.0" prefWidth="946.0" styleClass="anpStudent" stylesheets="@../css/student.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.StudentFormController">
     <children>
         <Text layoutX="398.0" layoutY="50.0" styleClass="textTitle" text="STUDENT FORM">
             <font>
@@ -63,10 +19,10 @@
 
         <!-- TextFields with textField styleClass -->
         <TextField fx:id="txtId" layoutX="94.0" layoutY="188.0" onAction="#txtIdOnAction" prefHeight="36.0" prefWidth="208.0" promptText="ID" styleClass="textField" />
-        <TextField fx:id="txtAddress" layoutX="94.0" layoutY="329.0" onAction="#txtAddressOnAction" prefHeight="36.0" prefWidth="208.0" promptText="Address" styleClass="textField" />
-        <TextField fx:id="txtDate" layoutX="104.0" layoutY="92.0" onAction="#txtDateOnAction" prefHeight="36.0" prefWidth="248.0" promptText="Date" styleClass="textField" />
-        <TextField fx:id="txtContact" layoutX="339.0" layoutY="188.0" onAction="#txtContactOnAction" prefHeight="36.0" prefWidth="208.0" promptText="Contact" styleClass="textField" />
-        <TextField fx:id="txtName" layoutX="94.0" layoutY="255.0" onAction="#txtNameOnAction" prefHeight="36.0" prefWidth="208.0" promptText="Name" styleClass="textField" />
+        <TextField fx:id="txtAddress" layoutX="94.0" layoutY="329.0" onAction="#txtAddressOnAction" onKeyReleased="#txtAddressOnKeyReleased" prefHeight="36.0" prefWidth="208.0" promptText="Address" styleClass="textField" />
+        <TextField fx:id="txtDate" layoutX="104.0" layoutY="92.0" prefHeight="36.0" prefWidth="248.0" promptText="Date" styleClass="textField" />
+        <TextField fx:id="txtContact" layoutX="339.0" layoutY="188.0" onKeyReleased="#txtContactOnKeyReleased" prefHeight="36.0" prefWidth="208.0" promptText="Contact" styleClass="textField" />
+        <TextField fx:id="txtName" layoutX="94.0" layoutY="255.0" onAction="#txtNameOnAction" onKeyReleased="#txtNameOnKeyReleased" prefHeight="36.0" prefWidth="208.0" promptText="Name" styleClass="textField" />
         <TextField fx:id="txtSearch" layoutX="508.0" layoutY="92.0" prefHeight="36.0" prefWidth="334.0" promptText="Search" styleClass="textField" />
         <TextField fx:id="txtcourseName" layoutX="607.0" layoutY="219.0" prefHeight="36.0" prefWidth="232.0" promptText="Course Name" styleClass="textField" />
         <TextField fx:id="txtDuration" layoutX="610.0" layoutY="275.0" prefHeight="36.0" prefWidth="232.0" promptText="Duration" styleClass="textField" />

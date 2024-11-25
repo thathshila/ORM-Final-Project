@@ -9,14 +9,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="anpUser" prefHeight="694.0" prefWidth="946.0" stylesheets="@../css/user.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Controller.UserFormController">
+<AnchorPane fx:id="anpUser" prefHeight="694.0" prefWidth="946.0" stylesheets="@../css/user.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.UserFormController">
    <children>
       <Text layoutX="424.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textTitle" text="USER FORM" />
-      <TextField fx:id="txtRole" layoutX="521.0" layoutY="196.0" onAction="#txtRoleOnAction" prefHeight="35.0" prefWidth="334.0" promptText="role" styleClass="textField" />
-      <TextField fx:id="txtContact" layoutX="521.0" layoutY="376.0" onAction="#txtContactOnAction" prefHeight="35.0" prefWidth="334.0" promptText="contact" styleClass="textField" />
-      <TextField fx:id="txtPassword" layoutX="517.0" layoutY="280.0" onAction="#txtPasswordOnAction" prefHeight="35.0" prefWidth="334.0" promptText="password" styleClass="textField" />
+      <TextField fx:id="txtRole" layoutX="521.0" layoutY="196.0" onAction="#txtRoleOnAction" onKeyReleased="#txtRoleOnKeyReleased" prefHeight="35.0" prefWidth="334.0" promptText="role" styleClass="textField" />
+      <TextField fx:id="txtContact" layoutX="521.0" layoutY="376.0" onAction="#txtContactOnAction" onKeyReleased="#txtContactOnKeyReleased" prefHeight="35.0" prefWidth="334.0" promptText="contact" styleClass="textField" />
+      <TextField fx:id="txtPassword" layoutX="517.0" layoutY="280.0" onAction="#txtPasswordOnAction" onKeyReleased="#txtPasswordOnKeyReleased" prefHeight="35.0" prefWidth="334.0" promptText="password" styleClass="textField" />
       <TextField fx:id="txtEmail" layoutX="88.0" layoutY="380.0" onAction="#txtEmailOnAction" prefHeight="35.0" prefWidth="350.0" promptText="email" styleClass="textField" />
-      <TextField fx:id="txtUsername" layoutX="88.0" layoutY="287.0" onAction="#txtUsernameOnAction" prefHeight="35.0" prefWidth="350.0" promptText="username" styleClass="textField" />
+      <TextField fx:id="txtUsername" layoutX="88.0" layoutY="287.0" onAction="#txtUsernameOnAction" onKeyReleased="#txtUsernameOnKeyReleased" prefHeight="35.0" prefWidth="350.0" promptText="username" styleClass="textField" />
       <Button fx:id="btnSave" layoutX="106.0" layoutY="436.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="35.0" prefWidth="130.0" styleClass="saveBtn" stylesheets="@../css/user.css" text="SAVE" />
       <Button fx:id="btnUpdate" layoutX="559.0" layoutY="436.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="35.0" prefWidth="130.0" styleClass="updateBtn" text="UPDATE" />
       <Button fx:id="btnDelete" layoutX="307.0" layoutY="436.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="35.0" prefWidth="130.0" styleClass="deleteBtn" text="DELETE" />
@@ -38,7 +38,7 @@
       <Text layoutX="611.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelText" text="CONTACT" />
       <Text layoutX="606.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelText" text="PASSWORD" />
       <Text layoutX="624.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelText" text="ROLE" />
-      <TextField fx:id="txtDate" layoutX="88.0" layoutY="98.0" onAction="#txtDateOnAction" prefHeight="26.0" prefWidth="248.0" styleClass="textField" />
+      <TextField fx:id="txtDate" layoutX="88.0" layoutY="98.0" prefHeight="26.0" prefWidth="248.0" styleClass="textField" />
       <ImageView fitHeight="35.0" fitWidth="39.0" layoutX="805.0" layoutY="94.0">
          <image>
             <Image url="@../images/icons8-search-100.png" />

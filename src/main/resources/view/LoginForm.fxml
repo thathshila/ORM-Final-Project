@@ -8,9 +8,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="anpDashboard" prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: black;" stylesheets="@../css/login.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Controller.LoginFormController">
+<AnchorPane fx:id="anpDashboard" prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: black;" stylesheets="@../css/login.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.LoginFormController">
    <children>
-      <ImageView fitHeight="700.0" fitWidth="1200.0">
+      <ImageView fitHeight="700.0" fitWidth="1259.0">
          <image>
             <Image url="@../images/360_F_827953194_0rpctRfqorWgrpMAv9NRxvrCWe8U4PFy.jpg" />
          </image>
@@ -23,8 +23,8 @@
       <AnchorPane layoutX="123.0" layoutY="183.0" prefHeight="446.0" prefWidth="438.0" style="-fx-background-color: white; -fx-background-radius: 20PX;">
          <children>
             <Button fx:id="btnForgotPassword" layoutX="158.0" layoutY="241.0" mnemonicParsing="false" onAction="#btnForgotPasswordOnAction" prefHeight="59.0" prefWidth="259.0" style="-fx-font-size: 15px; -fx-text-fill: black;" stylesheets="@../css/login.css" text="forgot password?" />
-            <TextField fx:id="txtUsername" layoutX="31.0" layoutY="84.0" prefHeight="33.0" prefWidth="354.0" promptText="username" />
-            <TextField fx:id="txtPassword" layoutX="31.0" layoutY="181.0" prefHeight="34.0" prefWidth="354.0" promptText="password" />
+            <TextField fx:id="txtUsername" layoutX="31.0" layoutY="84.0" prefHeight="41.0" prefWidth="354.0" promptText="username" styleClass="logout1" stylesheets="@../css/DashFile.css" />
+            <TextField fx:id="txtPassword" layoutX="31.0" layoutY="181.0" prefHeight="42.0" prefWidth="354.0" promptText="password" styleClass="logout1" stylesheets="@../css/DashFile.css" />
             <Text layoutX="43.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UserName">
                <font>
                   <Font name="System Bold" size="18.0" />

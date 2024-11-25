@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="anpCourse" prefHeight="694.0" prefWidth="946.0" stylesheets="@../css/course.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Controller.CourseFormController">
+<AnchorPane fx:id="anpCourse" prefHeight="694.0" prefWidth="946.0" stylesheets="@../css/course.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.CourseFormController">
    <children>
       <Text layoutX="412.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="COURSE  FORM">
          <font>
@@ -18,8 +18,8 @@
          </font>
       </Text>
       <TextField fx:id="txtDuration" layoutX="120.0" layoutY="248.0" onAction="#txtDurationOnAction" prefHeight="34.0" prefWidth="291.0" promptText="Duration" style="-fx-background-color: white;" styleClass="textField" />
-      <TextField fx:id="txtFree" layoutX="528.0" layoutY="248.0" onAction="#txtFreeOnAction" prefHeight="34.0" prefWidth="291.0" promptText="Fee" style="-fx-background-color: white;" styleClass="textField" />
-      <TextField fx:id="txtName" layoutX="528.0" layoutY="155.0" onAction="#txtNameOnAction" prefHeight="34.0" prefWidth="291.0" promptText="Name" style="-fx-background-color: white;" styleClass="textField" />
+      <TextField fx:id="txtFree" layoutX="528.0" layoutY="248.0" onAction="#txtFreeOnAction" onKeyReleased="#txtFreeOnKeyReleased" prefHeight="34.0" prefWidth="291.0" promptText="Fee" style="-fx-background-color: white;" styleClass="textField" />
+      <TextField fx:id="txtName" layoutX="528.0" layoutY="155.0" onAction="#txtNameOnAction" onKeyReleased="#txtNameOnKeyReleased" prefHeight="34.0" prefWidth="291.0" promptText="Name" style="-fx-background-color: white;" styleClass="textField" />
       <TextField fx:id="txtId" layoutX="120.0" layoutY="155.0" onAction="#txtIdOnAction" prefHeight="34.0" prefWidth="291.0" promptText="ID" style="-fx-background-color: white;" styleClass="textField" />
       <Button fx:id="btnSave" layoutX="126.0" layoutY="390.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="34.0" prefWidth="92.0" styleClass="blue-button" text="SAVE" />
       <Button fx:id="btnUpdate" layoutX="300.0" layoutY="390.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="34.0" prefWidth="92.0" styleClass="blue-button" text="UPDATE" />
