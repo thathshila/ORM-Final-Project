@@ -45,32 +45,14 @@ public class LoginFormController {
         }
     }
 
-//    private void navigateToTheDashboard() throws IOException {
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/MainForm.fxml"));
-//        AnchorPane anchorPane = loader.load();
-//
-//        MainFormController mainFormController = loader.getController();
-//        mainFormController.setUsername(username);
-//
-//        Scene scene = new Scene(anchorPane);
-//        Stage stage = new Stage();
-//
-//        stage.setScene(scene);
-//        stage.centerOnScreen();
-//        stage.setTitle("Dashboard Form");
-//        stage.show();
-//
-//        anpDashboard.getScene().getWindow().hide();
-//    }
-
     private void navigateToTheDashboard() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/MainForm.fxml"));
         AnchorPane anchorPane = loader.load();
 
         MainFormController mainFormController = loader.getController();
-        String userRole = userDao.getUserRole(username);  // Fetch the role from the database
+        String userRole = userDao.getUserRole(username);
         mainFormController.setUsername(username);
-        mainFormController.setAccess(userRole);  // Pass the correct role
+        mainFormController.setAccess(userRole);
 
         Scene scene = new Scene(anchorPane);
         Stage stage = new Stage();

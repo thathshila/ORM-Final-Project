@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.bo.BoFactory;
 import lk.ijse.bo.Custom.PaymentBo;
@@ -20,12 +21,16 @@ import lk.ijse.entity.Payment;
 import lk.ijse.entity.Student;
 import lk.ijse.entity.Student_Course;
 import lk.ijse.entityTm.PaymentTm;
+import lk.ijse.util.Regex;
+import lk.ijse.util.TextFieldType;
 
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
+import static lk.ijse.util.TextFieldType.PRICE;
 
 public class PaymentFormController {
 
@@ -163,7 +168,6 @@ public class PaymentFormController {
     }
 
     private void setDate() {
-        //  txtDate.setEditable(true);
         LocalDate now = LocalDate.now();
         txtDate.setText(String.valueOf(now));
     }
@@ -240,6 +244,10 @@ public class PaymentFormController {
 
     @FXML
     public void btnConfirmOnAction(ActionEvent actionEvent) {
+        if(!isValidated()){
+            new Alert(Alert.AlertType.ERROR,"Please Check TextFields!").show();
+            return;
+        }
         if (txtId.getText().isEmpty() || comboCourses.getValue() == null || txtPayAmount.getText().isEmpty()) {
             new Alert(Alert.AlertType.WARNING, "Please fill in all required fields").show();
             return;
@@ -343,20 +351,29 @@ public class PaymentFormController {
         if (!studentCourseObservableList.isEmpty()) {
             comboCourses.setValue(studentCourseObservableList.get(0));
         }
-   }
+    }
 
     @FXML
     public void comboPayHistoryOnAction(ActionEvent actionEvent) {
         Long stu_cou_id = Long.valueOf(comboPayHistory.getValue());
 
         for (Payment payment : paymentArrayList) {
-            if(payment.getStudent_course().getStudent_course_id().equals(stu_cou_id)) {
+            if (payment.getStudent_course().getStudent_course_id().equals(stu_cou_id)) {
                 lblBalanceAmount.setText(String.valueOf(payment.getBalance_amount()));
                 lblDate.setText(payment.getPay_date());
                 lblStatus.setText(payment.getStatus());
                 lblUpfrontAmount.setText(String.valueOf(payment.getUpfront_amount()));
             }
         }
+    }
+
+    public void txtPayAmountOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(TextFieldType.PRICE, txtPayAmount);
+    }
+
+    public boolean isValidated() {
+        if (!Regex.setTextColor(TextFieldType.PRICE, txtPayAmount)) return false;
+        return true;
     }
 }
 

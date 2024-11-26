@@ -189,10 +189,10 @@ public class UserFormController {
 
     @FXML
     void btnSaveOnAction(ActionEvent event) throws IOException {
-//        if(!isValidated()){
-//            new Alert(Alert.AlertType.ERROR,"Please Check TextFields!").show();
-//            return;
-//        }
+        if(!isValidated()){
+           new Alert(Alert.AlertType.ERROR,"Please Check TextFields!").show();
+            return;
+        }
         String id = txtUserId.getText();
         String role = txtRole.getText();
         String username = txtUsername.getText();

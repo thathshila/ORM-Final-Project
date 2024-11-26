@@ -21,6 +21,5 @@ public class Course {
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
     private List<Student_Course> studentCourses;
 
-
 }
 
