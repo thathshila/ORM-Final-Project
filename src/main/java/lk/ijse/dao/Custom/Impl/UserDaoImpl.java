@@ -132,17 +132,17 @@ public class UserDaoImpl implements UserDao {
                     ("SELECT * FROM user U WHERE U.user_id = :id", User.class);
             query.setParameter("id", value);
 
-            user = query.uniqueResult(); // Execute query and set the result to customer
+            user = query.uniqueResult();
 
-            transaction.commit(); // Commit the transaction if successful
+            transaction.commit();
         } catch (Exception e) {
             if (transaction != null) {
-                transaction.rollback(); // Rollback transaction if an error occurs
+                transaction.rollback();
             }
-            e.printStackTrace(); // Log the exception for debugging
+            e.printStackTrace();
         } finally {
             if (session != null) {
-                session.close(); // Ensure session is closed
+                session.close();
             }
         }
 
@@ -166,7 +166,7 @@ public class UserDaoImpl implements UserDao {
                 String dbPw = resultList.get(0);
                 return BCrypt.checkpw(pw, dbPw);
             }
-            return false; // Username not found or password mismatch
+            return false;
 
         } catch (Exception e) {
             if (session != null && session.getTransaction() != null) {
@@ -186,25 +186,22 @@ public class UserDaoImpl implements UserDao {
         Session session = null;
         Transaction transaction = null;
         try {
-            // Get the session and start a transaction
             session = FactoryConfiguration.getInstance().getSession();
             transaction = session.beginTransaction();
 
-            // Update the user entity in the database
             session.update(user);
 
-            // Commit the transaction
             transaction.commit();
             return true;
         } catch (Exception e) {
             if (transaction != null) {
-                transaction.rollback(); // Rollback if an error occurs
+                transaction.rollback();
             }
             e.printStackTrace();
             return false;
         } finally {
             if (session != null) {
-                session.close(); // Close the session
+                session.close();
             }
         }
     }
@@ -219,7 +216,7 @@ public class UserDaoImpl implements UserDao {
             return query.uniqueResult();
         } catch (Exception e) {
             e.printStackTrace();
-            return null; // Handle or log the exception appropriately
+            return null;
         }
     }
 
@@ -229,15 +226,12 @@ public class UserDaoImpl implements UserDao {
         Session session = null;
 
         try {
-            // Get the session from the factory
             session = FactoryConfiguration.getInstance().getSession();
             session.beginTransaction();
 
-            // HQL query to count the number of courses
             String hql = "SELECT COUNT(u) FROM User u";
             Query<Long> query = session.createQuery(hql, Long.class);
 
-            // Get the result and cast to int
             Long countResult = query.uniqueResult();
             if (countResult != null) {
                 userCount = countResult.intValue();
@@ -248,7 +242,7 @@ public class UserDaoImpl implements UserDao {
             if (session != null && session.getTransaction() != null) {
                 session.getTransaction().rollback();
             }
-            e.printStackTrace(); // For debugging
+            e.printStackTrace();
         } finally {
             if (session != null) {
                 session.close();

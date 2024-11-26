@@ -177,17 +177,17 @@ public class CourseDaoImpl implements CourseDao {
                     ("SELECT * FROM course WHERE course_id = :id", Course.class);
             query.setParameter("id", courseId);
 
-            course = query.uniqueResult(); // Execute query and set the result to customer
+            course = query.uniqueResult();
 
-            transaction.commit(); // Commit the transaction if successful
+            transaction.commit();
         } catch (Exception e) {
             if (transaction != null) {
-                transaction.rollback(); // Rollback transaction if an error occurs
+                transaction.rollback();
             }
-            e.printStackTrace(); // Log the exception for debugging
+            e.printStackTrace();
         } finally {
             if (session != null) {
-                session.close(); // Ensure session is closed
+                session.close();
             }
         }
 
@@ -200,15 +200,12 @@ public class CourseDaoImpl implements CourseDao {
         Session session = null;
 
         try {
-            // Get the session from the factory
             session = FactoryConfiguration.getInstance().getSession();
             session.beginTransaction();
 
-            // HQL query to count the number of courses
             String hql = "SELECT COUNT(c) FROM Course c";
             Query<Long> query = session.createQuery(hql, Long.class);
 
-            // Get the result and cast to int
             Long countResult = query.uniqueResult();
             if (countResult != null) {
                 courseCount = countResult.intValue();
@@ -219,7 +216,7 @@ public class CourseDaoImpl implements CourseDao {
             if (session != null && session.getTransaction() != null) {
                 session.getTransaction().rollback();
             }
-            e.printStackTrace(); // For debugging
+            e.printStackTrace();
         } finally {
             if (session != null) {
                 session.close();

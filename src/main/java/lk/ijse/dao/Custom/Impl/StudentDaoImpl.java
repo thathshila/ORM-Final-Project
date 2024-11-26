@@ -145,13 +145,11 @@ public class StudentDaoImpl implements StudentDao {
             Session session = FactoryConfiguration.getInstance().getSession();
 
             try {
-                // Create the query to check if the student-course combination exists
                 String hql = "SELECT 1 FROM Student_Course sc WHERE sc.student.stu_id = :stuId AND sc.course.course_id = :courseId";
                 Query query = session.createQuery(hql);
                 query.setParameter("stuId", stuId);
                 query.setParameter("courseId", courseId);
 
-                // Check if the query returns any results
                 isRegistered = query.uniqueResult() != null;
             } catch (Exception e) {
                 e.printStackTrace();
@@ -168,15 +166,12 @@ public class StudentDaoImpl implements StudentDao {
         Session session = null;
 
         try {
-            // Get the session from the factory
             session = FactoryConfiguration.getInstance().getSession();
             session.beginTransaction();
 
-            // HQL query to count the number of courses
             String hql = "SELECT COUNT(s) FROM Student s";
             Query<Long> query = session.createQuery(hql, Long.class);
 
-            // Get the result and cast to int
             Long countResult = query.uniqueResult();
             if (countResult != null) {
                 studentCount = countResult.intValue();
@@ -187,7 +182,7 @@ public class StudentDaoImpl implements StudentDao {
             if (session != null && session.getTransaction() != null) {
                 session.getTransaction().rollback();
             }
-            e.printStackTrace(); // For debugging
+            e.printStackTrace();
         } finally {
             if (session != null) {
                 session.close();
