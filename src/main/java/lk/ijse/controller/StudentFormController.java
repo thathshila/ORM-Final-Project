@@ -130,7 +130,6 @@ public class StudentFormController {
         setTable();
         filterStudent();
         selectTableRow();
-       // clearFields();
     }
 
     private void getAllStudents() throws IOException {
@@ -303,11 +302,11 @@ public class StudentFormController {
         String name = txtName.getText();
         String address = txtAddress.getText();
         String contact = txtContact.getText();
-        Date date = Date.valueOf(txtDate.getText());
+      //  Date date = Date.valueOf(txtDate.getText());
 
         User user = userDao.getUserById(comboUser.getValue());
 
-        StudentDto studentDto = new StudentDto(id, name, address, contact, date, user);
+        StudentDto studentDto = new StudentDto(id, name, address, contact, null, user);
 
         if (studentBo.update(studentDto)) {
             new Alert(Alert.AlertType.INFORMATION, "Student Updated Successfully").show();
@@ -395,4 +394,5 @@ public class StudentFormController {
         if(!Regex.setTextColor(TextFieldType.CONTACT,txtContact)) return false;
         return true;
     }
+
 }

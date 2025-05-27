@@ -31,12 +31,12 @@ public class StudentDaoImpl implements StudentDao {
 
         try {
             transaction = session.beginTransaction();
-            session.update(student);  // Use update() for updating existing records
+            session.update(student);
             transaction.commit();
             isUpdated = true;
         } catch (Exception e) {
             if (transaction != null) {
-                transaction.rollback();  // Rollback transaction on error
+                transaction.rollback();
             }
             e.printStackTrace();
         } finally {
@@ -113,17 +113,17 @@ public class StudentDaoImpl implements StudentDao {
                     ("SELECT * FROM student WHERE stu_id = :id", Student.class);
             query.setParameter("id", text);
 
-            student = query.uniqueResult(); // Execute query and set the result to customer
+            student = query.uniqueResult();
 
-            transaction.commit(); // Commit the transaction if successful
+            transaction.commit();
         } catch (Exception e) {
             if (transaction != null) {
-                transaction.rollback(); // Rollback transaction if an error occurs
+                transaction.rollback();
             }
-            e.printStackTrace(); // Log the exception for debugging
+            e.printStackTrace();
         } finally {
             if (session != null) {
-                session.close(); // Ensure session is closed
+                session.close();
             }
         }
 

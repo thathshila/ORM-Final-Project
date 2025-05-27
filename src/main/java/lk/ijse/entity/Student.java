@@ -21,7 +21,7 @@ public class Student {
     private Date date;
     private int status;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "student", cascade = CascadeType.ALL)
     private List<Student_Course> studentCourses;
 
     @ManyToOne

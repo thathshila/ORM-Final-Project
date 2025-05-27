@@ -66,17 +66,15 @@ public class PasswordChangeFormController{
 
         for (User user : observableUserList) {
             if (user.getUsername().equalsIgnoreCase(search)) {
-                // Populate the fields if a match is found
-                txtEmail.setText(user.getUser_email()); // Ensure `getUser_email()` exists in User class
-                txtContact.setText(user.getUser_phone()); // Ensure `getUser_phone()` exists in User class
-                txtRole.setText(user.getUser_role()); // Ensure `getRole()` exists in User class
+                txtEmail.setText(user.getUser_email());
+                txtContact.setText(user.getUser_phone());
+                txtRole.setText(user.getUser_role());
                 found = true;
                 break;
             }
         }
 
         if (!found) {
-            // Clear fields if no match is found
             txtEmail.clear();
             txtContact.clear();
             txtRole.clear();
@@ -93,17 +91,11 @@ public class PasswordChangeFormController{
         String confirmPassword = txtConfirmPassword.getText();
 
         if (newPassword.equals(confirmPassword)) {
-            // Hash the password using BCrypt
             String hashedPassword = BCrypt.hashpw(newPassword, BCrypt.gensalt());
-
-            // Find the user based on the search field
             String username = txtSearch.getText();
             for (User user : observableUserList) {
                 if (user.getUsername().equalsIgnoreCase(username)) {
-                    // Update the user's password
                     user.setPassword(hashedPassword);
-
-                    // Save the updated user to the database
                     if (userDao.updateUser(user)) {
                         new Alert(Alert.AlertType.INFORMATION, "Password updated successfully!").show();
                         clearPasswordFields();

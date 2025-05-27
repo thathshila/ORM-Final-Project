@@ -56,7 +56,7 @@
       </Text>
       <ImageView fitHeight="34.0" fitWidth="42.0" layoutX="583.0" layoutY="321.0">
          <image>
-            <Image url="@../images/icons8-search-100.png" />
+            <Image url="@../images/search.png" />
          </image>
       </ImageView>
    </children>

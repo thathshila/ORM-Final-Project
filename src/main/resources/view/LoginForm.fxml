@@ -13,7 +13,7 @@
    <children>
       <ImageView fitHeight="700.0" fitWidth="1259.0">
          <image>
-            <Image url="@../images/360_F_827953194_0rpctRfqorWgrpMAv9NRxvrCWe8U4PFy.jpg" />
+            <Image url="@../images/loginPage.jpg" />
          </image>
       </ImageView>
       <Text layoutX="81.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: yellow;" text="WELCOME TO " wrappingWidth="354.39999999999986">

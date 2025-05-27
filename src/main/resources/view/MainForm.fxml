@@ -12,7 +12,7 @@
    <children>
       <ImageView fitHeight="772.0" fitWidth="1200.0">
          <image>
-            <Image url="@../images/pexels-photo-349610.jpeg" />
+            <Image url="@../images/mainForm.jpeg" />
          </image>
       </ImageView>
       <AnchorPane fx:id="anpMain" layoutX="208.0" layoutY="78.0" prefHeight="694.0" prefWidth="946.0" stylesheets="@../css/DashFile.css" />
@@ -55,32 +55,32 @@
          </font></Button>
       <ImageView fitHeight="36.0" fitWidth="40.0" layoutX="24.0" layoutY="229.0">
          <image>
-            <Image url="@../images/icons8-dashboard-96.png" />
+            <Image url="@../images/dashboard.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="42.0" fitWidth="48.0" layoutX="20.0" layoutY="290.0">
          <image>
-            <Image url="@../images/icons8-user-96.png" />
+            <Image url="@../images/user.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="42.0" fitWidth="48.0" layoutX="20.0" layoutY="425.0">
          <image>
-            <Image url="@../images/icons8-courses-64.png" />
+            <Image url="@../images/courses.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="20.0" layoutY="488.0">
          <image>
-            <Image url="@../images/icons8-payment-96.png" />
+            <Image url="@../images/payment.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="48.0" fitWidth="56.0" layoutX="16.0" layoutY="351.0">
          <image>
-            <Image url="@../images/icons8-student-96.png" />
+            <Image url="@../images/student.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="42.0" fitWidth="48.0" layoutX="705.0" layoutY="14.0">
          <image>
-            <Image url="@../images/icons8-user-96.png" />
+            <Image url="@../images/user.png" />
          </image>
       </ImageView>
       <Label fx:id="lblCurrentUser" layoutX="770.0" layoutY="24.0" prefHeight="21.0" prefWidth="102.0" />
@@ -97,7 +97,12 @@
       </Button>
       <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="20.0" layoutY="553.0">
          <image>
-            <Image url="@../images/icons8-settings-100.png" />
+            <Image url="@../images/settings.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="149.0" layoutX="20.0" layoutY="14.0">
+         <image>
+            <Image url="@../images/pngtree-academy-graduation-hat-icon-simple-vector-png-image_4757623.png" />
          </image>
       </ImageView>
    </children>

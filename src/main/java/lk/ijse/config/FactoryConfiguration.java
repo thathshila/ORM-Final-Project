@@ -24,6 +24,7 @@ public class FactoryConfiguration{
         sessionFactory = configuration.buildSessionFactory();
     }
 
+
     public static FactoryConfiguration getInstance() throws IOException {
         return (factoryConfiguration==null) ? factoryConfiguration=new FactoryConfiguration():factoryConfiguration;
     }
